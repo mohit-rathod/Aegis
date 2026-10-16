@@ -1,5 +1,9 @@
 # Aegis Support Assistant
 
+## Demo video
+
+https://github.com/user-attachments/assets/ab557447-2d90-4946-895c-746ea4dac8d0
+
 One customer-support application with text and voice input, a three-intent Groq router, embedding-based product answers, authorized order tools, classifier caching and live human-support handoff. FastAPI serves the basic frontend; no separate frontend build is needed.
 
 Read [ARCHITECTURE.md](ARCHITECTURE.md) for the request flow and file responsibilities.
