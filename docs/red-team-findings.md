@@ -1,4 +1,4 @@
-# Observed Part A component-level weaknesses
+# Observed component-level weaknesses
 
 These findings were exercised against actual deterministic components during this update. They are not invented claims about live Groq behavior. No live Groq red-team run was possible without the user's key; use the provided live input/output datasets next.
 

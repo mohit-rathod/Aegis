@@ -1,8 +1,8 @@
-# Part A design and implementation
+# Support design and implementation
 
 ## Shared pipeline
 
-Text and future transcribed voice enter PartASupportService. The service validates session ownership, serializes each session using a Redis lease, checks idempotent retries, rejects terminal sessions, applies deterministic input rules, runs Groq semantic input checks, consults the classifier cache, validates the route, and dispatches the exact approved immutable turn/context. All handler results go through ResponseService before commit and delivery.
+Text and future transcribed voice enter SupportService. The service validates session ownership, serializes each session using a Redis lease, checks idempotent retries, rejects terminal sessions, applies deterministic input rules, runs Groq semantic input checks, consults the classifier cache, validates the route, and dispatches the exact approved immutable turn/context. All handler results go through ResponseService before commit and delivery.
 
 ApprovalAuthority signs a fingerprint of the exact turn and session snapshot with a process-local key and expiration. Dispatch and tool execution verify it. Approval is never accepted from HTTP input or serialized client state. This is a control-flow invariant within a trusted Python application, not a sandbox against arbitrary code execution and not proof that semantic injection detection has perfect recall.
 
@@ -58,4 +58,4 @@ Datasets contain 45 labeled routing messages, 9 clarification cases, 24 input-sa
 
 The live runner reports routing accuracy, macro-F1, confusion matrix, clarification rate, input attack recall/benign false-positive rate, output unsupported-claim rejection/valid-claim rejection, tool authorization accuracy and cache counters. Operational provider errors fail closed but are excluded from semantic recall denominators and counted separately. Structural tests assert no dispatch after blocked/failed input, exact-context approval, no unauthorized tools, no forged evidence, exact refund wording, escalation persistence-before-success, termination, replay/conflict behavior, output rejection and shared Redis state visibility.
 
-Actual authoring results and honest limitations appear in docs/part-a-validation.md. Do not interpret deterministic fake-model tests as model accuracy or guardrail recall.
+Actual authoring results and honest limitations appear in docs/validation.md. Do not interpret deterministic fake-model tests as model accuracy or guardrail recall.

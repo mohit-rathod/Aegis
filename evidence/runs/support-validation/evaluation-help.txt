@@ -1,0 +1,9 @@
+usage: evaluate_support.py [-h]
+                           [--suite {all,routing,ambiguity,input,output,tools,cache}]
+                           --live [--output OUTPUT]
+
+options:
+  -h, --help            show this help message and exit
+  --suite {all,routing,ambiguity,input,output,tools,cache}
+  --live                Explicitly authorize real Groq evaluation calls
+  --output OUTPUT

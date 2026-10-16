@@ -1,13 +1,13 @@
-# Decisions recorded during this implementation
+# Design decisions
 
-Recorded at 2026-10-16T10:28:35.507737+00:00. These entries document actual choices in this patch; they do not fabricate earlier timestamps or Git history.
+Recorded 2026-10-16T11:25:19.684060+00:00 during consolidation.
 
-- Retained the original embedding RAG and introduced a separate async Part A assembly so legacy RAG tests remain usable while public interfaces share the new guarded pipeline.
-- Selected native Groq function calls and a bounded two-round loop; discarded final model prose on transactional paths in favor of exact trusted-field rendering.
-- Added process-local signed approval tied to immutable turn/context, plus independent tool ownership validation and a request-scoped evidence vault.
-- Used shared Redis for assignment sessions/cache/intake. Production separation and HA remain documented operational work.
-- Replaced an initial stream-based intake approach before delivery: a later stream write could fail after other business values were saved. The final version records session, response and intake together using one atomic MSET under a checked lease. Intake enumeration uses admin-protected SCAN rather than a second index.
-- Kept cancelled embedding work counted until its actual thread finishes, so request cancellation cannot create an unbounded executor backlog.
-- Moved HTTP test doubles to injected transports after the authoring environment's SOCKS proxy caused unrelated client-initialization failures. Production clients retain normal environment proxy behavior.
-- Used a real ephemeral Redis 6.2.14 for authoring tests. Deployment compose targets Redis 7. No real Groq key was present, so no live quality or latency claims are made.
-- Kept two explicitly observed conservative false positives; details and reproduction are in red-team-findings.md.
+- Consolidated two configuration classes into Settings without changing existing environment-variable names.
+- Replaced the older synchronous RAG-only orchestration with the active async SupportService; migrated component tests to the same async contracts.
+- Consolidated provider and product-handler implementations so there is one GroqClient and one ProductQuestionAgent.
+- Unified interactive chat, one-shot questions, metrics and retrieval administration under one CLI. Both installed command names resolve to that exact entry point for compatibility.
+- Preserved Redis keys and knowledge-base bytes to avoid data or index migrations.
+- Retained the previous decision record unchanged. The latest upload omitted earlier capacity run outputs; current regression evidence is recorded separately.
+- Kept voice as a future channel adapter over the existing runtime and service, not a second application.
+
+Earlier decision records are preserved under evidence/archive/baseline-validation/decisions.md.

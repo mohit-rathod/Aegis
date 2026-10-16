@@ -13,8 +13,8 @@ class GroundedAnswerer:
     def __init__(self, llm):
         self.llm = llm
 
-    def draft(self, question, hits):
-        result = self.llm.complete_json(read_prompt("product_answer.md"),
+    async def draft(self, question, hits):
+        result = await self.llm.complete_json(read_prompt("product_answer.md"),
             {"question": question, "reference_documents": evidence_payload(hits)})
         draft = AnswerDraft.model_validate(result)
         validate_citations(draft, hits)

@@ -1,4 +1,4 @@
-# Part A requirement mapping
+# Requirements mapping
 
 | Requirement | Implementation | Evidence |
 |---|---|---|
@@ -10,9 +10,9 @@
 | Output commitments grounded | application/response_service.py, tool evidence vault | forged evidence/refund/eligibility tests |
 | Classifier cache/hit rate | adapters/cache/redis_cache.py | hit/miss/coalescing tests and capacity.json |
 | Exact refund message | safe_responses.py + confirmed tool state | test_refund_exact_message |
-| Escalate and terminate | redis_sessions.py + part_a_service.py | persistence/replay/termination tests |
+| Escalate and terminate | redis_sessions.py + support_service.py | persistence/replay/termination tests |
 | Terminal traces | observability/logging.py | saved scripted traces.jsonl |
-| Scale design and scaffolding | async API + Redis + bounded workers | design-part-a.md and capacity runner |
+| Scale design and scaffolding | async API + Redis + bounded workers | support-design.md and capacity runner |
 | Actual 10k production capacity | not established | capacity report explicitly narrows its scope |
 | Fourth-agent extension | versioned registry boundary | documented only; deferred |
 | Honest failures | red-team-findings.md | two observed component false positives |

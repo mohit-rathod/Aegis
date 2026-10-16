@@ -42,7 +42,3 @@ class SupportDecision(StrictModel):
     supported: bool
     reason: str = Field(max_length=300)
 
-class FinalResponse(StrictModel):
-    status: Literal["answer", "abstain", "tool_required", "blocked", "unavailable"]
-    answer: str
-    citations: list[str]

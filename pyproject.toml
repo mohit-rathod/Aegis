@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aegis-support-rag"
-version = "0.1.0"
-description = "Document-aware semantic RAG for the fictional Aegis support assignment"
+name = "aegis-support"
+version = "0.2.0"
+description = "Aegis customer support assistant with guarded routing, retrieval and tools"
 requires-python = ">=3.11"
 dependencies = [
   "numpy>=1.26,<3",
@@ -20,8 +20,8 @@ dependencies = [
 ]
 
 [project.scripts]
-aegis-rag = "support_assistant.entrypoints.text_cli:main"
-aegis-support = "support_assistant.entrypoints.part_a_cli:main"
+aegis-rag = "support_assistant.entrypoints.cli:main"
+aegis-support = "support_assistant.entrypoints.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -1,12 +1,13 @@
 import re
-from support_assistant.domain.evidence import SupportDecision
-from support_assistant.rag.grounding import read_prompt,evidence_payload
+from support_assistant.safety.output_guard import GroundingOutputGuard
 from support_assistant.rag.citations import validate_citations
 from support_assistant.safety.safe_responses import MESSAGES,REFUND_INITIATED,ESCALATED
 from support_assistant.domain.conversation import SupportError
 
 class ResponseService:
-    def __init__(self,llm,executor): self.llm,self.executor=llm,executor
+    def __init__(self,llm,executor):
+        self.llm,self.executor=llm,executor
+        self.output_guard=GroundingOutputGuard(llm)
 
     async def render(self,approved,result):
         if result.kind=="product":
@@ -16,10 +17,8 @@ class ResponseService:
             transactional = re.compile(r"\b(?:your|the) refund (?:is|has been) (?:approved|initiated)\b|\bI (?:have )?(?:created|raised|submitted) (?:a |your )?(?:ticket|support request)\b", re.I)
             if any(transactional.search(claim.text) for claim in result.draft.claims):
                 return "abstain", MESSAGES["abstain"], ()
-            verdict=SupportDecision.model_validate(await self.llm.complete_json(read_prompt("output_guard.md"),
-                {"question":approved.turn.text,"draft":result.draft.model_dump(),
-                    "reference_documents":evidence_payload(result.hits)}))
-            if not verdict.supported: return "abstain",MESSAGES["abstain"],()
+            supported=await self.output_guard.check(approved.turn.text,result.draft,result.hits)
+            if not supported: return "abstain",MESSAGES["abstain"],()
             text="\n".join(f"{c.text} [{', '.join(c.citations)}]" for c in result.draft.claims)
             citations=tuple(sorted({x for c in result.draft.claims for x in c.citations}))
             return "answer",text,citations

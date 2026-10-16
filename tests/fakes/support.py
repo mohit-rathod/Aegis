@@ -12,7 +12,7 @@ from support_assistant.adapters.persistence.fixture_orders import FixtureOrders
 from support_assistant.adapters.cache.redis_cache import RedisClassifierCache
 from support_assistant.application.guarded_dispatcher import GuardedDispatcher
 from support_assistant.application.response_service import ResponseService
-from support_assistant.application.part_a_service import PartASupportService
+from support_assistant.application.support_service import SupportService
 from support_assistant.routing.classifier import Classifier
 from support_assistant.safety.regex_guard import RegexGuard
 from support_assistant.tools.executor import ToolExecutor
@@ -77,7 +77,7 @@ def make_service(redis,prefix,root,llm=None):
         "escalate_to_human":HumanEscalationAgent(authority)}
     dispatcher=GuardedDispatcher(authority,handlers)
     responses=ResponseService(llm,executor)
-    service=PartASupportService(store,RegexGuard(),llm,Classifier(llm,cache),dispatcher,
+    service=SupportService(store,RegexGuard(),llm,Classifier(llm,cache),dispatcher,
         responses,authority,executor,turn_timeout=5,max_active=32)
     return SimpleNamespace(service=service,store=store,cache=cache,llm=llm,
         authority=authority,executor=executor,product=product,dispatcher=dispatcher,responses=responses)

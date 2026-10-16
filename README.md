@@ -47,7 +47,7 @@ python scripts/evaluate_support.py --suite all --live
 python scripts/evaluate_retrieval.py
 ```
 
-The scripts use neutral capability names. Live evaluation consumes real Groq quota. Scripted tests measure control flow, authorization and storage behavior, not model accuracy. Baseline raw evidence is archived unchanged; current validation lives in evidence/runs/support-validation/.
+The scripts use neutral capability names. Live evaluation consumes real Groq quota. Scripted tests measure control flow, authorization and storage behavior, not model accuracy. Current validation lives in evidence/runs/support-validation/.
 
 ## Project organization
 

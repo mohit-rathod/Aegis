@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 import secrets
 from fastapi import FastAPI,Header,HTTPException,Depends
 from pydantic import BaseModel,ConfigDict,Field
-from support_assistant.bootstrap_part_a import create_runtime
+from support_assistant.bootstrap import create_runtime
 from support_assistant.domain.conversation import Turn,SupportError
 from support_assistant.observability.logging import configure_logging
 
@@ -13,7 +13,7 @@ async def lifespan(app):
     try: yield
     finally: await app.state.runtime.aclose()
 
-app=FastAPI(title="Aegis Part A (demo authentication)",lifespan=lifespan)
+app=FastAPI(title="Aegis Support API",lifespan=lifespan)
 
 class MessageRequest(BaseModel):
     model_config=ConfigDict(extra="forbid",strict=True)
@@ -24,12 +24,12 @@ class MessageRequest(BaseModel):
 async def customer(authorization: str=Header(default="")):
     runtime=app.state.runtime
     token=authorization.removeprefix("Bearer ") if authorization.startswith("Bearer ") else ""
-    for identity,expected in [("customer-a",runtime.part.demo_a_token),("customer-b",runtime.part.demo_b_token)]:
+    for identity,expected in [("customer-a",runtime.settings.demo_a_token),("customer-b",runtime.settings.demo_b_token)]:
         if expected and token and secrets.compare_digest(token.encode(),expected.encode()): return identity
     raise HTTPException(401,"Invalid demo credentials")
 
 async def admin(authorization: str=Header(default="")):
-    expected=app.state.runtime.part.admin_token
+    expected=app.state.runtime.settings.admin_token
     if not expected or not secrets.compare_digest(authorization.encode(),("Bearer "+expected).encode()):
         raise HTTPException(403,"Administrative credentials required")
 
@@ -67,7 +67,7 @@ async def support_requests():
     import json
     runtime = app.state.runtime
     rows = []
-    async for key in runtime.redis.scan_iter(match=f"{runtime.part.prefix}:support:*"):
+    async for key in runtime.redis.scan_iter(match=f"{runtime.settings.prefix}:support:*"):
         raw = await runtime.redis.get(key)
         if raw: rows.append(json.loads(raw))
         if len(rows) >= 20: break

@@ -1,4 +1,4 @@
-# Part A limitations
+# support system limitations
 
 - Demo identities are selected by trusted local CLI use or server-configured demo bearer tokens; there is no real customer identity provider.
 - Orders are read-only fixtures. No payment, shipping, refund-execution or real human-chat integration exists.
@@ -11,5 +11,5 @@
 - Slow embedding tasks cannot be forcibly killed in a Python thread. Slots remain occupied until those tasks finish; request deadlines prevent their results from being delivered late.
 - Per-worker provider limits need a deployment-wide quota budget. The package does not dynamically discover or enforce an account's global token quota.
 - Only one handler runs per turn. Unrelated mixed issues clarify; an unrestricted cross-agent loop is deliberately absent.
-- The refund timeline and escalation policy changed to user-specified demo rules. The index must be rebuilt before starting Part A.
-- The old sync RAG service remains for legacy tests and internal compatibility; public ask/chat/API paths use the new shared Part A service.
+- Refund and escalation policies remain the approved demo rules. This structural refactor does not change KB content or require a new index.
+- All public channels use the same async SupportService; future voice integration must reuse this boundary.

@@ -1,0 +1,134 @@
+{
+  "mode": "scripted_provider_real_redis",
+  "results": [
+    {
+      "scenario": "regex",
+      "response": {
+        "session_id": "0444432cbe674c9688094d80f0e5af60",
+        "turn_id": "regex",
+        "status": "blocked",
+        "answer": "I cannot share internal instructions. Please tell me what you need help with.",
+        "intent": null,
+        "citations": [],
+        "session_state": "active",
+        "support_request_id": null
+      }
+    },
+    {
+      "scenario": "product",
+      "response": {
+        "session_id": "0444432cbe674c9688094d80f0e5af60",
+        "turn_id": "product",
+        "status": "abstain",
+        "answer": "I do not have enough confirmed information in the Aegis knowledge base. Please clarify your question or request human support.",
+        "intent": "product_question",
+        "citations": [],
+        "session_state": "active",
+        "support_request_id": null
+      }
+    },
+    {
+      "scenario": "cache-repeat",
+      "response": {
+        "session_id": "0444432cbe674c9688094d80f0e5af60",
+        "turn_id": "cache-repeat",
+        "status": "abstain",
+        "answer": "I do not have enough confirmed information in the Aegis knowledge base. Please clarify your question or request human support.",
+        "intent": "product_question",
+        "citations": [],
+        "session_state": "active",
+        "support_request_id": null
+      }
+    },
+    {
+      "scenario": "order",
+      "response": {
+        "session_id": "0444432cbe674c9688094d80f0e5af60",
+        "turn_id": "order",
+        "status": "answer",
+        "answer": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+        "intent": "order_status",
+        "citations": [
+          "tool-b3aea160aaf84578821fd663d5b4c61a"
+        ],
+        "session_state": "active",
+        "support_request_id": null
+      }
+    },
+    {
+      "scenario": "eligibility",
+      "response": {
+        "session_id": "0444432cbe674c9688094d80f0e5af60",
+        "turn_id": "eligibility",
+        "status": "answer",
+        "answer": "This order is eligible to request a return. Eligibility does not approve or initiate a refund.\nWithin 14 days and recorded conditions meet the return-request policy.",
+        "intent": "order_status",
+        "citations": [
+          "tool-59511f1f42e24f5bbc3cc4d84acb143d"
+        ],
+        "session_state": "active",
+        "support_request_id": null
+      }
+    },
+    {
+      "scenario": "refund",
+      "response": {
+        "session_id": "0444432cbe674c9688094d80f0e5af60",
+        "turn_id": "refund",
+        "status": "answer",
+        "answer": "The refund is initiated and will be refunded to the original payment source in the next 3-5 working days",
+        "intent": "order_status",
+        "citations": [
+          "tool-1a27887429aa49a4bacb2b628be59673"
+        ],
+        "session_state": "active",
+        "support_request_id": null
+      }
+    },
+    {
+      "scenario": "denied",
+      "response": {
+        "session_id": "0444432cbe674c9688094d80f0e5af60",
+        "turn_id": "denied",
+        "status": "order_not_available",
+        "answer": "I could not retrieve that order for this session. Please verify the reference or contact support.",
+        "intent": "order_status",
+        "citations": [],
+        "session_state": "active",
+        "support_request_id": null
+      }
+    },
+    {
+      "scenario": "escalation",
+      "response": {
+        "session_id": "0444432cbe674c9688094d80f0e5af60",
+        "turn_id": "escalation",
+        "status": "escalated",
+        "answer": "The request has been successfully raised to the support team. A member from the team will be joining the chat shortly",
+        "intent": "escalate_to_human",
+        "citations": [],
+        "session_state": "terminated",
+        "support_request_id": "SUP-cc4acb1350405425"
+      }
+    },
+    {
+      "scenario": "terminated",
+      "response": {
+        "session_id": "0444432cbe674c9688094d80f0e5af60",
+        "turn_id": "terminated",
+        "status": "terminated",
+        "answer": "This chat has ended after escalation to support. Please start a new chat for another request.",
+        "intent": null,
+        "citations": [],
+        "session_state": "terminated",
+        "support_request_id": "SUP-cc4acb1350405425"
+      }
+    }
+  ],
+  "classifier": {
+    "misses": 6,
+    "groq_calls": 6,
+    "hits": 1,
+    "hit_rate": 0.14285714285714285
+  }
+}

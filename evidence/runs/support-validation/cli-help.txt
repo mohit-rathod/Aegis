@@ -1,0 +1,14 @@
+usage: cli.py [-h] {chat,ask,metrics,build-index,retrieve} ...
+
+Aegis Support Assistant
+
+positional arguments:
+  {chat,ask,metrics,build-index,retrieve}
+    chat                Start a support conversation
+    ask                 Ask one question in a new session
+    metrics             Show classifier cache metrics
+    build-index         Build the knowledge-base embedding index
+    retrieve            Inspect retrieval for development
+
+options:
+  -h, --help            show this help message and exit

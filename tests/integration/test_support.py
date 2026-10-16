@@ -9,7 +9,7 @@ import uuid
 from unittest.mock import AsyncMock
 from redis.asyncio import Redis
 
-from tests.fakes.part_a import make_service
+from tests.fakes.support import make_service
 from support_assistant.domain.conversation import Turn,SupportError
 from support_assistant.domain.routing import Route
 from support_assistant.domain.orders import HandlerResult
@@ -58,7 +58,7 @@ class RuleTests(unittest.TestCase):
     def test_kb_hashes_still_valid(self): self.assertEqual(len(load_documents(ROOT/'data/knowledge_base')),15)
 
 @unittest.skipUnless(os.getenv('AEGIS_TEST_REDIS_URL'),'Set AEGIS_TEST_REDIS_URL to run real Redis integration tests')
-class PartATests(unittest.IsolatedAsyncioTestCase):
+class SupportTests(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.redis=Redis.from_url(os.environ['AEGIS_TEST_REDIS_URL'],decode_responses=True)
         await self.redis.ping()
@@ -209,7 +209,7 @@ class PartATests(unittest.IsolatedAsyncioTestCase):
         import httpx
         from support_assistant.entrypoints.api.app import app
         app.state.runtime=SimpleNamespace(store=self.r.store,service=self.r.service,cache=self.r.cache,
-            redis=self.redis,part=SimpleNamespace(demo_a_token='demo-a',demo_b_token='demo-b',admin_token='ops',prefix=self.prefix))
+            redis=self.redis,settings=SimpleNamespace(demo_a_token='demo-a',demo_b_token='demo-b',admin_token='ops',prefix=self.prefix))
         async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app),base_url='http://test') as client:
             self.assertEqual((await client.post('/sessions')).status_code,401)
             created=await client.post('/sessions',headers={'Authorization':'Bearer demo-a'})

@@ -1,0 +1,76 @@
+test_http_failure_does_not_expose_provider_body (integration.test_groq_adapter.ProviderTests.test_http_failure_does_not_expose_provider_body) ... ok
+test_json_payload_and_gpt_oss_reasoning (integration.test_groq_adapter.ProviderTests.test_json_payload_and_gpt_oss_reasoning) ... ok
+test_whisper_rejected_before_request (integration.test_groq_adapter.ProviderTests.test_whisper_rejected_before_request) ... ok
+test_approval_without_initiation_rejected (integration.test_support.RuleTests.test_approval_without_initiation_rejected) ... ok
+test_example_credential_is_conservatively_blocked (integration.test_support.RuleTests.test_example_credential_is_conservatively_blocked) ... ok
+test_kb_hashes_still_valid (integration.test_support.RuleTests.test_kb_hashes_still_valid) ... ok
+test_missing_condition_requires_review (integration.test_support.RuleTests.test_missing_condition_requires_review) ... ok
+test_opened_cartridge_requires_review (integration.test_support.RuleTests.test_opened_cartridge_requires_review) ... ok
+test_quote_is_not_regex_command (integration.test_support.RuleTests.test_quote_is_not_regex_command) ... ok
+test_regex_allows_regular_refund (integration.test_support.RuleTests.test_regex_allows_regular_refund) ... ok
+test_regex_allows_wifi_password_question (integration.test_support.RuleTests.test_regex_allows_wifi_password_question) ... ok
+test_regex_blocks_obvious_override (integration.test_support.RuleTests.test_regex_blocks_obvious_override) ... ok
+test_regex_catches_secret (integration.test_support.RuleTests.test_regex_catches_secret) ... ok
+test_return_boundary_day14_included (integration.test_support.RuleTests.test_return_boundary_day14_included) ... ok
+test_unknown_condition_requires_review (integration.test_support.RuleTests.test_unknown_condition_requires_review) ... ok
+test_api_identity_is_server_selected (integration.test_support.SupportTests.test_api_identity_is_server_selected) ... Executing <Task pending name='Task-17' coro=<SupportTests.test_api_identity_is_server_selected() running at /workspace/scratch/25f0a27c0d26/tmp/aegis-source-update/tests/integration/test_support.py:215> wait_for=<Future pending cb=[Task.task_wakeup()] created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py:448> cb=[_run_until_complete_cb() at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py:181] created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.111 seconds
+ok
+test_async_rag_claim_template_is_not_live_evidence (integration.test_support.SupportTests.test_async_rag_claim_template_is_not_live_evidence) ... ok
+test_authorized_status (integration.test_support.SupportTests.test_authorized_status) ... ok
+test_cache_hit_still_runs_input_gate (integration.test_support.SupportTests.test_cache_hit_still_runs_input_gate) ... ok
+test_cache_is_bounded (integration.test_support.SupportTests.test_cache_is_bounded) ... ok
+test_cached_classification_does_not_authorize_new_attack (integration.test_support.SupportTests.test_cached_classification_does_not_authorize_new_attack) ... ok
+test_changed_message_rejects_approval (integration.test_support.SupportTests.test_changed_message_rejects_approval) ... ok
+test_concurrent_cache_fill_calls_provider_once (integration.test_support.SupportTests.test_concurrent_cache_fill_calls_provider_once) ... ok
+test_conflicting_turn_id_rejected (integration.test_support.SupportTests.test_conflicting_turn_id_rejected) ... ok
+test_dispatch_rejects_missing_approval (integration.test_support.SupportTests.test_dispatch_rejects_missing_approval) ... ok
+test_eligibility_is_not_refund (integration.test_support.SupportTests.test_eligibility_is_not_refund) ... ok
+test_escalation_persistence_failure_never_claims_success (integration.test_support.SupportTests.test_escalation_persistence_failure_never_claims_success) ... ok
+test_escalation_saved_then_chat_terminated (integration.test_support.SupportTests.test_escalation_saved_then_chat_terminated) ... ok
+test_explicit_foreign_session_rejected (integration.test_support.SupportTests.test_explicit_foreign_session_rejected) ... ok
+test_forged_tool_evidence_denied (integration.test_support.SupportTests.test_forged_tool_evidence_denied) ... ok
+test_gate_timeout_never_reaches_router (integration.test_support.SupportTests.test_gate_timeout_never_reaches_router) ... ok
+test_inconsistent_refund_fails_closed (integration.test_support.SupportTests.test_inconsistent_refund_fails_closed) ... ok
+test_lost_lease_cannot_commit (integration.test_support.SupportTests.test_lost_lease_cannot_commit) ... ok
+test_missing_reference_then_followup (integration.test_support.SupportTests.test_missing_reference_then_followup) ... ok
+test_other_worker_sees_termination (integration.test_support.SupportTests.test_other_worker_sees_termination) ... ok
+test_rag_rejected_output_not_released (integration.test_support.SupportTests.test_rag_rejected_output_not_released) ... ok
+test_refund_exact_message (integration.test_support.SupportTests.test_refund_exact_message) ... ok
+test_regex_block_never_reaches_router (integration.test_support.SupportTests.test_regex_block_never_reaches_router) ... ok
+test_same_session_overlap_is_busy (integration.test_support.SupportTests.test_same_session_overlap_is_busy) ... ok
+test_same_turn_replayed_without_provider (integration.test_support.SupportTests.test_same_turn_replayed_without_provider) ... ok
+test_semantic_block_never_reaches_router (integration.test_support.SupportTests.test_semantic_block_never_reaches_router) ... ok
+test_three_routes_dispatch (integration.test_support.SupportTests.test_three_routes_dispatch) ... ok
+test_tool_loop_is_bounded (integration.test_support.SupportTests.test_tool_loop_is_bounded) ... ok
+test_tool_order_substitution_denied (integration.test_support.SupportTests.test_tool_order_substitution_denied) ... ok
+test_turn_timeout_is_bounded (integration.test_support.SupportTests.test_turn_timeout_is_bounded) ... ok
+test_unauthorized_and_unknown_identical (integration.test_support.SupportTests.test_unauthorized_and_unknown_identical) ... ok
+test_unknown_tool_denied (integration.test_support.SupportTests.test_unknown_tool_denied) ... ok
+test_both_console_names_point_to_same_cli (integration.test_unified_runtime.UnifiedConfigTests.test_both_console_names_point_to_same_cli) ... ok
+test_existing_environment_names_are_preserved (integration.test_unified_runtime.UnifiedConfigTests.test_existing_environment_names_are_preserved) ... ok
+test_one_runtime_handles_product_and_order (integration.test_unified_runtime.UnifiedRuntimeTests.test_one_runtime_handles_product_and_order) ... ok
+test_async_generation_and_verification_order (unit.rag.test_pipeline.RagAsyncTests.test_async_generation_and_verification_order) ... ok
+test_input_failure_propagates_to_service_boundary (unit.rag.test_pipeline.RagAsyncTests.test_input_failure_propagates_to_service_boundary) ... ok
+test_input_rejection_is_typed (unit.rag.test_pipeline.RagAsyncTests.test_input_rejection_is_typed) ... ok
+test_malformed_input_verdict_rejected (unit.rag.test_pipeline.RagAsyncTests.test_malformed_input_verdict_rejected) ... ok
+test_no_hits_does_not_call_generation (unit.rag.test_pipeline.RagAsyncTests.test_no_hits_does_not_call_generation) ... ok
+test_output_failure_propagates_to_service_boundary (unit.rag.test_pipeline.RagAsyncTests.test_output_failure_propagates_to_service_boundary) ... ok
+test_output_rejection_is_preserved (unit.rag.test_pipeline.RagAsyncTests.test_output_rejection_is_preserved) ... ok
+test_tool_required_contains_no_claims (unit.rag.test_pipeline.RagAsyncTests.test_tool_required_contains_no_claims) ... ok
+test_bad_vectors_rejected (unit.rag.test_pipeline.RagTests.test_bad_vectors_rejected) ... ok
+test_chunking_retains_parent_identity (unit.rag.test_pipeline.RagTests.test_chunking_retains_parent_identity) ... ok
+test_empty_answer_rejected (unit.rag.test_pipeline.RagTests.test_empty_answer_rejected) ... ok
+test_index_roundtrip_and_document_deduplication (unit.rag.test_pipeline.RagTests.test_index_roundtrip_and_document_deduplication) ... ok
+test_invalid_overlap_rejected (unit.rag.test_pipeline.RagTests.test_invalid_overlap_rejected) ... ok
+test_loads_exactly_fifteen_sources (unit.rag.test_pipeline.RagTests.test_loads_exactly_fifteen_sources) ... ok
+test_manifest_hash_mismatch_rejected (unit.rag.test_pipeline.RagTests.test_manifest_hash_mismatch_rejected) ... ok
+test_manifest_path_escape_rejected (unit.rag.test_pipeline.RagTests.test_manifest_path_escape_rejected) ... ok
+test_nonanswer_cannot_smuggle_claims (unit.rag.test_pipeline.RagTests.test_nonanswer_cannot_smuggle_claims) ... ok
+test_stale_index_rejected (unit.rag.test_pipeline.RagTests.test_stale_index_rejected) ... ok
+test_title_budget_rejected (unit.rag.test_pipeline.RagTests.test_title_budget_rejected) ... ok
+test_unretrieved_citation_rejected (unit.rag.test_pipeline.RagTests.test_unretrieved_citation_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 70 tests in 0.855s
+
+OK

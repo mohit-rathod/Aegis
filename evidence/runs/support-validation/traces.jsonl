@@ -1,0 +1,67 @@
+{"time": "2026-10-16T11:48:05.119159+00:00", "event": "turn_received", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "regex", "channel": "text"}
+{"time": "2026-10-16T11:48:05.120163+00:00", "event": "input_rejected", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "regex", "rule": "prompt_extraction"}
+{"time": "2026-10-16T11:48:05.120534+00:00", "event": "turn_finished", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "regex", "total_ms": 1.37}
+{"time": "2026-10-16T11:48:05.120604+00:00", "event": "turn_received", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "product", "channel": "text"}
+{"time": "2026-10-16T11:48:05.121115+00:00", "event": "input_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "product", "allowed": true, "duration_ms": 0.1}
+{"time": "2026-10-16T11:48:05.121389+00:00", "event": "classifier_cache", "turn_id": "product", "hit": false}
+{"time": "2026-10-16T11:48:05.121739+00:00", "event": "route_resolved", "turn_id": "product", "intent": "product_question", "needs_clarification": false, "duration_ms": 0.11}
+{"time": "2026-10-16T11:48:05.121915+00:00", "event": "handler_started", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "product", "intent": "product_question"}
+{"time": "2026-10-16T11:48:05.121995+00:00", "event": "output_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "product", "status": "abstain", "source_count": 0, "duration_ms": 0.0}
+{"time": "2026-10-16T11:48:05.122186+00:00", "event": "session_updated", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "product", "previous_state": "active", "state": "active", "support_request_id": null}
+{"time": "2026-10-16T11:48:05.122400+00:00", "event": "turn_finished", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "product", "total_ms": 1.79}
+{"time": "2026-10-16T11:48:05.122464+00:00", "event": "turn_received", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "cache-repeat", "channel": "text"}
+{"time": "2026-10-16T11:48:05.122919+00:00", "event": "input_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "cache-repeat", "allowed": true, "duration_ms": 0.11}
+{"time": "2026-10-16T11:48:05.123270+00:00", "event": "classifier_cache", "turn_id": "cache-repeat", "hit": true}
+{"time": "2026-10-16T11:48:05.123339+00:00", "event": "handler_started", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "cache-repeat", "intent": "product_question"}
+{"time": "2026-10-16T11:48:05.123400+00:00", "event": "output_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "cache-repeat", "status": "abstain", "source_count": 0, "duration_ms": 0.0}
+{"time": "2026-10-16T11:48:05.123611+00:00", "event": "session_updated", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "cache-repeat", "previous_state": "active", "state": "active", "support_request_id": null}
+{"time": "2026-10-16T11:48:05.123771+00:00", "event": "turn_finished", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "cache-repeat", "total_ms": 1.31}
+{"time": "2026-10-16T11:48:05.123825+00:00", "event": "turn_received", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "order", "channel": "text"}
+{"time": "2026-10-16T11:48:05.124235+00:00", "event": "input_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "order", "allowed": true, "duration_ms": 0.07}
+{"time": "2026-10-16T11:48:05.124435+00:00", "event": "classifier_cache", "turn_id": "order", "hit": false}
+{"time": "2026-10-16T11:48:05.124745+00:00", "event": "route_resolved", "turn_id": "order", "intent": "order_status", "needs_clarification": false, "duration_ms": 0.09}
+{"time": "2026-10-16T11:48:05.124895+00:00", "event": "handler_started", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "order", "intent": "order_status"}
+{"time": "2026-10-16T11:48:05.125145+00:00", "event": "tool_authorization", "turn_id": "order", "tool": "get_order_status", "call_id": "call-1", "allowed": true}
+{"time": "2026-10-16T11:48:05.125208+00:00", "event": "tool_completed", "turn_id": "order", "tool": "get_order_status", "call_id": "call-1", "evidence_id": "tool-b3aea160aaf84578821fd663d5b4c61a", "duration_ms": 0.07}
+{"time": "2026-10-16T11:48:05.125289+00:00", "event": "output_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "order", "status": "answer", "source_count": 1, "duration_ms": 0.04}
+{"time": "2026-10-16T11:48:05.125472+00:00", "event": "session_updated", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "order", "previous_state": "active", "state": "active", "support_request_id": null}
+{"time": "2026-10-16T11:48:05.125606+00:00", "event": "turn_finished", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "order", "total_ms": 1.78}
+{"time": "2026-10-16T11:48:05.125652+00:00", "event": "turn_received", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "eligibility", "channel": "text"}
+{"time": "2026-10-16T11:48:05.126039+00:00", "event": "input_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "eligibility", "allowed": true, "duration_ms": 0.06}
+{"time": "2026-10-16T11:48:05.126240+00:00", "event": "classifier_cache", "turn_id": "eligibility", "hit": false}
+{"time": "2026-10-16T11:48:05.126532+00:00", "event": "route_resolved", "turn_id": "eligibility", "intent": "order_status", "needs_clarification": false, "duration_ms": 0.09}
+{"time": "2026-10-16T11:48:05.126656+00:00", "event": "handler_started", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "eligibility", "intent": "order_status"}
+{"time": "2026-10-16T11:48:05.126813+00:00", "event": "tool_authorization", "turn_id": "eligibility", "tool": "check_return_eligibility", "call_id": "call-2", "allowed": true}
+{"time": "2026-10-16T11:48:05.126907+00:00", "event": "tool_completed", "turn_id": "eligibility", "tool": "check_return_eligibility", "call_id": "call-2", "evidence_id": "tool-59511f1f42e24f5bbc3cc4d84acb143d", "duration_ms": 0.09}
+{"time": "2026-10-16T11:48:05.126982+00:00", "event": "output_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "eligibility", "status": "answer", "source_count": 1, "duration_ms": 0.04}
+{"time": "2026-10-16T11:48:05.127229+00:00", "event": "session_updated", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "eligibility", "previous_state": "active", "state": "active", "support_request_id": null}
+{"time": "2026-10-16T11:48:05.128498+00:00", "event": "turn_finished", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "eligibility", "total_ms": 2.84}
+{"time": "2026-10-16T11:48:05.128574+00:00", "event": "turn_received", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "refund", "channel": "text"}
+{"time": "2026-10-16T11:48:05.129151+00:00", "event": "input_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "refund", "allowed": true, "duration_ms": 0.07}
+{"time": "2026-10-16T11:48:05.129400+00:00", "event": "classifier_cache", "turn_id": "refund", "hit": false}
+{"time": "2026-10-16T11:48:05.129728+00:00", "event": "route_resolved", "turn_id": "refund", "intent": "order_status", "needs_clarification": false, "duration_ms": 0.11}
+{"time": "2026-10-16T11:48:05.129891+00:00", "event": "handler_started", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "refund", "intent": "order_status"}
+{"time": "2026-10-16T11:48:05.130059+00:00", "event": "tool_authorization", "turn_id": "refund", "tool": "get_order_status", "call_id": "call-3", "allowed": true}
+{"time": "2026-10-16T11:48:05.130120+00:00", "event": "tool_completed", "turn_id": "refund", "tool": "get_order_status", "call_id": "call-3", "evidence_id": "tool-1a27887429aa49a4bacb2b628be59673", "duration_ms": 0.06}
+{"time": "2026-10-16T11:48:05.130186+00:00", "event": "output_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "refund", "status": "answer", "source_count": 1, "duration_ms": 0.03}
+{"time": "2026-10-16T11:48:05.130426+00:00", "event": "session_updated", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "refund", "previous_state": "active", "state": "active", "support_request_id": null}
+{"time": "2026-10-16T11:48:05.130585+00:00", "event": "turn_finished", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "refund", "total_ms": 2.01}
+{"time": "2026-10-16T11:48:05.130637+00:00", "event": "turn_received", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "denied", "channel": "text"}
+{"time": "2026-10-16T11:48:05.131054+00:00", "event": "input_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "denied", "allowed": true, "duration_ms": 0.06}
+{"time": "2026-10-16T11:48:05.131255+00:00", "event": "classifier_cache", "turn_id": "denied", "hit": false}
+{"time": "2026-10-16T11:48:05.131552+00:00", "event": "route_resolved", "turn_id": "denied", "intent": "order_status", "needs_clarification": false, "duration_ms": 0.09}
+{"time": "2026-10-16T11:48:05.131732+00:00", "event": "handler_started", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "denied", "intent": "order_status"}
+{"time": "2026-10-16T11:48:05.131917+00:00", "event": "tool_authorization", "turn_id": "denied", "tool": "get_order_status", "call_id": "call-4", "allowed": false}
+{"time": "2026-10-16T11:48:05.131970+00:00", "event": "output_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "denied", "status": "order_not_available", "source_count": 0, "duration_ms": 0.0}
+{"time": "2026-10-16T11:48:05.132153+00:00", "event": "session_updated", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "denied", "previous_state": "active", "state": "active", "support_request_id": null}
+{"time": "2026-10-16T11:48:05.132264+00:00", "event": "turn_finished", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "denied", "total_ms": 1.63}
+{"time": "2026-10-16T11:48:05.132307+00:00", "event": "turn_received", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "escalation", "channel": "text"}
+{"time": "2026-10-16T11:48:05.132660+00:00", "event": "input_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "escalation", "allowed": true, "duration_ms": 0.06}
+{"time": "2026-10-16T11:48:05.132880+00:00", "event": "classifier_cache", "turn_id": "escalation", "hit": false}
+{"time": "2026-10-16T11:48:05.133210+00:00", "event": "route_resolved", "turn_id": "escalation", "intent": "escalate_to_human", "needs_clarification": false, "duration_ms": 0.09}
+{"time": "2026-10-16T11:48:05.133388+00:00", "event": "handler_started", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "escalation", "intent": "escalate_to_human"}
+{"time": "2026-10-16T11:48:05.133460+00:00", "event": "output_checked", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "escalation", "status": "escalated", "source_count": 0, "duration_ms": 0.0}
+{"time": "2026-10-16T11:48:05.133664+00:00", "event": "session_updated", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "escalation", "previous_state": "active", "state": "terminated", "support_request_id": "SUP-cc4acb1350405425"}
+{"time": "2026-10-16T11:48:05.133776+00:00", "event": "turn_finished", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "escalation", "total_ms": 1.47}
+{"time": "2026-10-16T11:48:05.133822+00:00", "event": "turn_received", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "terminated", "channel": "text"}
+{"time": "2026-10-16T11:48:05.134206+00:00", "event": "turn_finished", "session_id": "0444432cbe674c9688094d80f0e5af60", "turn_id": "terminated", "total_ms": 0.38}

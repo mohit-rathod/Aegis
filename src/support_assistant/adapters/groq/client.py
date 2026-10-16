@@ -1,61 +1,53 @@
+import asyncio
 import json
 import httpx
 from support_assistant.domain.errors import ProviderError
+from support_assistant.observability.logging import event
 
-class GroqJsonLLM:
-    def __init__(self, api_key: str, model: str, timeout: float = 20):
-        if not api_key or not model:
-            raise ValueError("Set GROQ_API_KEY and GROQ_MODEL in .env")
-        self.model = model
-        self.client = httpx.Client(base_url="https://api.groq.com/openai/v1/",
-            headers={"Authorization": f"Bearer {api_key}"},
-            timeout=httpx.Timeout(timeout), follow_redirects=False)
+class GroqClient:
+    def __init__(self,key,model,timeout=20,max_tokens=4096,max_concurrency=16,transport=None):
+        if not key or not model: raise ValueError("Set GROQ_API_KEY and GROQ_MODEL")
+        if "whisper" in model.lower(): raise ValueError("GROQ_MODEL must be a chat model; use GROQ_STT_MODEL for Whisper")
+        self.model,self.max_tokens=model,max_tokens
+        self.limit=asyncio.Semaphore(max_concurrency)
+        self.client=httpx.AsyncClient(base_url="https://api.groq.com/openai/v1/",
+            headers={"Authorization":f"Bearer {key}"},timeout=httpx.Timeout(timeout),
+            limits=httpx.Limits(max_connections=max_concurrency,max_keepalive_connections=max_concurrency),
+            follow_redirects=False, transport=transport)
 
-    def complete_json(self, system: str, payload: dict) -> dict:
+    async def chat(self,messages,tools=None,force_tool=False):
+        payload={"model":self.model,"messages":messages,"temperature":0,
+            "max_completion_tokens":self.max_tokens}
+        if "gpt-oss" in self.model: payload["reasoning_effort"]="low"
+        if tools is not None:
+            payload.update(tools=tools,tool_choice="required" if force_tool else "auto",parallel_tool_calls=False)
+        else: payload["response_format"]={"type":"json_object"}
         try:
-            response = self.client.post("chat/completions", json={
-                "model": self.model,
-                "messages": [{"role": "system", "content": system},
-                    {"role": "user", "content": json.dumps(payload)}],
-                "temperature": 0,
-                "max_completion_tokens": 4096,
-                "response_format": {"type": "json_object"},
-            })
+            async with self.limit:
+                response=await self.client.post("chat/completions",json=payload)
             response.raise_for_status()
-            body = response.json()
-            if body["choices"][0].get("finish_reason") == "length":
-                raise ProviderError(
-                    "Groq output hit its token limit before completion"
-                )
-            content = body["choices"][0]["message"]["content"]
-            result = json.loads(content)
-            if not isinstance(result, dict):
-                raise ValueError("Expected JSON object")
-            return result
+            data=response.json()
+            choice=data["choices"][0]
+            if choice.get("finish_reason")=="length": raise ProviderError("provider_token_limit")
+            if not isinstance(choice["message"],dict): raise ValueError()
+            return choice["message"]
         except httpx.HTTPStatusError as exc:
-            status = exc.response.status_code
-
-            hints = {
-                400: "Check model support for JSON mode and request parameters",
-                401: "Check GROQ_API_KEY",
-                403: "Check account permissions and model access",
-                404: "Check GROQ_MODEL availability",
-                429: "Groq rate limit or quota reached",
-            }
-
-            hint = hints.get(status, "Groq service returned an HTTP error")
-            raise ProviderError(f"Groq HTTP {status}: {hint}") from None
-
+            raise ProviderError(f"groq_http_{exc.response.status_code}") from None
         except httpx.TimeoutException:
-            raise ProviderError("Groq request timed out") from None
-
+            raise ProviderError("groq_timeout") from None
         except httpx.RequestError:
-            raise ProviderError("Groq network connection failed") from None
+            raise ProviderError("groq_network_error") from None
+        except (ValueError,KeyError,IndexError,TypeError):
+            raise ProviderError("groq_invalid_response") from None
 
-        except (ValueError, KeyError, IndexError, TypeError):
-            raise ProviderError(
-                "Groq returned invalid JSON or an unexpected response structure"
-            ) from None
+    async def complete_json(self,system,payload):
+        result=await self.chat([{"role":"system","content":system},
+            {"role":"user","content":json.dumps(payload)}])
+        try:
+            body=json.loads(result["content"])
+            if not isinstance(body,dict): raise ValueError()
+            return body
+        except (ValueError,KeyError,TypeError):
+            raise ProviderError("groq_invalid_json") from None
 
-    def close(self):
-        self.client.close()
+    async def aclose(self): await self.client.aclose()

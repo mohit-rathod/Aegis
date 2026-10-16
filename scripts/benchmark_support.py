@@ -12,7 +12,7 @@ import time
 import uuid
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from redis.asyncio import Redis
-from tests.fakes.part_a import make_service
+from tests.fakes.support import make_service
 from support_assistant.domain.conversation import Turn
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -70,7 +70,7 @@ def main():
     p.add_argument('--sessions',type=int,default=10000)
     p.add_argument('--turns',type=int,default=200)
     p.add_argument('--concurrency',type=int,default=16)
-    p.add_argument('--output',type=Path,default=Path('var/evaluation/part-a-capacity.json'))
+    p.add_argument('--output',type=Path,default=Path('var/evaluation/support-capacity.json'))
     a=p.parse_args()
     if min(a.sessions,a.turns,a.concurrency)<=0:p.error('Counts must be positive')
     asyncio.run(run(a))
