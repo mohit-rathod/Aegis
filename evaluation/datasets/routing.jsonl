@@ -1,0 +1,45 @@
+{"id": "route-001", "text": "Which filter fits Pure Plus?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-002", "text": "Can Pure Mini connect to Wi-Fi?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-003", "text": "How do I clean the mesh pre-filter?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-004", "text": "What does the amber filter light mean?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-005", "text": "What is the general return window?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-006", "text": "How long does a refund normally take after initiation?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-007", "text": "Does Pure Plus support 5 GHz Wi-Fi?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-008", "text": "How much clearance does the purifier need?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-009", "text": "How do I reset the filter reminder?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-010", "text": "What is the warranty policy?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-011", "text": "Can I wash the HEPA cartridge?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-012", "text": "My purifier makes a rattling noise. What can I check?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-013", "text": "Does the purifier measure carbon dioxide?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-014", "text": "What is the shipping policy?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-015", "text": "Can I use the buttons while the app is offline?", "intent": "product_question", "needs_clarification": false}
+{"id": "route-016", "text": "Where is AEG-1001?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-017", "text": "Has AEG-1002 shipped?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-018", "text": "Can I return AEG-1003?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-019", "text": "Is AEG-1004 outside the return window?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-020", "text": "Check return eligibility for AEG-1005.", "intent": "order_status", "needs_clarification": false}
+{"id": "route-021", "text": "What is the status of AEG-1006?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-022", "text": "Has the refund on AEG-1008 been approved?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-023", "text": "Is the refund for AEG-1009 still being reviewed?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-024", "text": "Show the estimated arrival for AEG-1001.", "intent": "order_status", "needs_clarification": false}
+{"id": "route-025", "text": "Where is my order?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-026", "text": "Can I return my order?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-027", "text": "Please check my refund status.", "intent": "order_status", "needs_clarification": false}
+{"id": "route-028", "text": "Track order AEG-1001.", "intent": "order_status", "needs_clarification": false}
+{"id": "route-029", "text": "Has my order been delivered?", "intent": "order_status", "needs_clarification": false}
+{"id": "route-030", "text": "Check AEG-1003 eligibility, not the general policy.", "intent": "order_status", "needs_clarification": false}
+{"id": "route-031", "text": "I want to speak to a person.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-032", "text": "Please connect me to support.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-033", "text": "Raise this with your support team.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-034", "text": "I want a human to review my dispute.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-035", "text": "Please refund my order.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-036", "text": "Approve the refund on AEG-1003.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-037", "text": "Please cancel my order.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-038", "text": "The troubleshooting did not fix it; I need an agent.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-039", "text": "A person needs to review this warranty claim.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-040", "text": "I disagree with your return decision and want a review.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-041", "text": "Please transfer me to a human.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-042", "text": "I would like to file a complaint with support.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-043", "text": "Create a support request for me.", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-044", "text": "Can a team member take over this conversation?", "intent": "escalate_to_human", "needs_clarification": false}
+{"id": "route-045", "text": "I need support to arrange a replacement.", "intent": "escalate_to_human", "needs_clarification": false}

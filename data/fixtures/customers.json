@@ -1,0 +1,10 @@
+[
+  {
+    "customer_id": "customer-a",
+    "display_name": "Aegis Demo Customer A"
+  },
+  {
+    "customer_id": "customer-b",
+    "display_name": "Aegis Demo Customer B"
+  }
+]

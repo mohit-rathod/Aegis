@@ -8,7 +8,7 @@ class SentenceTransformerEmbedder:
         self.revision = revision
         self.model = SentenceTransformer(
             model_id,
-            revision=revision,\
+            revision=revision,
             device="cpu",
             token=os.getenv("HF_TOKEN", "").strip() or None,
         )

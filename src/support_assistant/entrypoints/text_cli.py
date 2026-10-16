@@ -23,12 +23,22 @@ def main():
                 "score": round(h.score, 4), "matched_chunks": h.matched_chunk_ids}
                 for h in build_retriever(settings).retrieve(args.question)]
         else:
-            from support_assistant.bootstrap import build_service
-            service, llm = build_service(settings)
-            try:
-                result = service.handle(args.question).model_dump()
-            finally:
-                llm.close()
+            import asyncio
+            import uuid
+            from support_assistant.bootstrap_part_a import create_runtime
+            from support_assistant.domain.conversation import Turn
+            from support_assistant.observability.logging import configure_logging
+            configure_logging()
+            async def ask_once():
+                runtime = await create_runtime()
+                try:
+                    session = await runtime.store.create("customer-a")
+                    response = await runtime.service.handle("customer-a", session.session_id,
+                        Turn(turn_id=uuid.uuid4().hex, text=args.question))
+                    return response.model_dump(mode="json")
+                finally:
+                    await runtime.aclose()
+            result = asyncio.run(ask_once())
         print(json.dumps(result, indent=2))
     except Exception as exc:
         # CLI setup failures are explicit; no unvalidated answer is produced.

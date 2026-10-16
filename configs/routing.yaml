@@ -1,0 +1,7 @@
+# Executable definitions live in routing/registry.py; this documents the contract.
+intents: [product_question, order_status, escalate_to_human]
+registry_version: aegis-intents-v1
+multi_issue: clarify
+unknown_intent: fail_closed
+cache_backend: redis
+cache_ttl_seconds: 300

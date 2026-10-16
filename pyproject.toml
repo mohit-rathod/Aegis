@@ -14,13 +14,17 @@ dependencies = [
   "httpx>=0.27,<1",
   "sentence-transformers>=3,<6",
   "python-dotenv>=1,<2",
+  "redis>=5,<9",
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.30,<1",
 ]
 
 [project.scripts]
 aegis-rag = "support_assistant.entrypoints.text_cli:main"
+aegis-support = "support_assistant.entrypoints.part_a_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-support_assistant = ["prompts/*.md"]
+support_assistant = ["prompts/*.md", "prompts/*.json"]

@@ -1,0 +1,20 @@
+{
+  "version": "part-a-v1",
+  "prompts": {
+    "input_guard.md": {
+      "sha256": "c9c0f41bed2ea46db022c8c1b9115fa8ad4b8e8ea075a46b0c5e28b66086f023"
+    },
+    "order_agent.md": {
+      "sha256": "e478fdf3d3426f44964eaf98f2acf3f5830e175ef6c94dc18a3a450cd86ef5d7"
+    },
+    "product_answer.md": {
+      "sha256": "822de418c6c2f9e6917f9fbda404dcabd34199e263a631f62407092203110e4e"
+    },
+    "output_guard.md": {
+      "sha256": "bb332cc3d287b9c57d3e1b1c6a704c9a4368af6f635d29812d15cbf02b443abe"
+    },
+    "router.md": {
+      "sha256": "d2dbec00c6d28d705ee27511e0730fbd4dd211171b464c44795440fbebb54a76"
+    }
+  }
+}

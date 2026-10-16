@@ -2,7 +2,7 @@
   "dataset_id": "aegis-support-kb-v1",
   "company": "Aegis",
   "fictional": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "effective_date": "2026-10-16",
   "language": "en-IN",
   "scope": "Fictional direct-store home air purifier support; not real Aegis company policy",
@@ -101,8 +101,8 @@
       "path": "policies/refunds.md",
       "title": "Refund decisions and payment timing",
       "category": "policies",
-      "version": "1.0.0",
-      "sha256": "76ef933ae0d554775cb27c876cbf2a015f39927ec8d6211f86185e16bc3a7272"
+      "version": "1.1.0",
+      "sha256": "8a349d60892fed61913f913623947f518403604f2e83cec3e00e4e1df51d9785"
     },
     {
       "document_id": "AEGIS-KB-013",
@@ -125,8 +125,8 @@
       "path": "support/human-escalation.md",
       "title": "Human support and handoff",
       "category": "support",
-      "version": "1.0.0",
-      "sha256": "278961e2f860ad9197e8983db79762972f8eb852b27800acdfdee87ece4c5595"
+      "version": "1.1.0",
+      "sha256": "0186dd7359ffc43ebeadc2a199a226311bfaf2aedfccf6b13d7c07649ad8ee86"
     }
   ]
 }

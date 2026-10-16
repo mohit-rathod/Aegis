@@ -1,0 +1,116 @@
+[
+  {
+    "customer_id": "customer-a",
+    "status": "in_transit",
+    "product_type": "purifier",
+    "channel": "direct",
+    "delivered_on": null,
+    "accessories_complete": true,
+    "condition": "inspected",
+    "refund_status": "none",
+    "order_id": "AEG-1001",
+    "estimated_delivery": "2026-10-20"
+  },
+  {
+    "customer_id": "customer-a",
+    "status": "delayed",
+    "product_type": "purifier",
+    "channel": "direct",
+    "delivered_on": null,
+    "accessories_complete": true,
+    "condition": "inspected",
+    "refund_status": "none",
+    "order_id": "AEG-1002"
+  },
+  {
+    "customer_id": "customer-a",
+    "status": "delivered",
+    "product_type": "purifier",
+    "channel": "direct",
+    "delivered_on": "2026-10-10",
+    "accessories_complete": true,
+    "condition": "inspected",
+    "refund_status": "none",
+    "order_id": "AEG-1003"
+  },
+  {
+    "customer_id": "customer-a",
+    "status": "delivered",
+    "product_type": "purifier",
+    "channel": "direct",
+    "delivered_on": "2026-09-01",
+    "accessories_complete": true,
+    "condition": "inspected",
+    "refund_status": "none",
+    "order_id": "AEG-1004"
+  },
+  {
+    "customer_id": "customer-a",
+    "status": "delivered",
+    "product_type": "cartridge",
+    "channel": "direct",
+    "delivered_on": "2026-10-10",
+    "accessories_complete": true,
+    "condition": "unused",
+    "refund_status": "none",
+    "order_id": "AEG-1005",
+    "sealed": false
+  },
+  {
+    "customer_id": "customer-a",
+    "status": "delivered",
+    "product_type": "purifier",
+    "channel": "direct",
+    "delivered_on": "2026-10-10",
+    "accessories_complete": true,
+    "condition": null,
+    "refund_status": "none",
+    "order_id": "AEG-1006"
+  },
+  {
+    "customer_id": "customer-b",
+    "status": "delivered",
+    "product_type": "purifier",
+    "channel": "direct",
+    "delivered_on": "2026-10-10",
+    "accessories_complete": true,
+    "condition": "inspected",
+    "refund_status": "none",
+    "order_id": "AEG-1007"
+  },
+  {
+    "customer_id": "customer-a",
+    "status": "delivered",
+    "product_type": "purifier",
+    "channel": "direct",
+    "delivered_on": "2026-10-10",
+    "accessories_complete": true,
+    "condition": "inspected",
+    "refund_status": "approved_and_initiated",
+    "order_id": "AEG-1008",
+    "refund_initiated_at": "2026-10-15T10:00:00+05:30",
+    "refund_destination": "original_payment_source"
+  },
+  {
+    "customer_id": "customer-a",
+    "status": "delivered",
+    "product_type": "purifier",
+    "channel": "direct",
+    "delivered_on": "2026-10-10",
+    "accessories_complete": true,
+    "condition": "inspected",
+    "refund_status": "under_review",
+    "order_id": "AEG-1009"
+  },
+  {
+    "customer_id": "customer-a",
+    "status": "delivered",
+    "product_type": "purifier",
+    "channel": "direct",
+    "delivered_on": "2026-10-10",
+    "accessories_complete": true,
+    "condition": "inspected",
+    "refund_status": "approved",
+    "order_id": "AEG-1010"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "fixture_as_of": "2026-10-16",
+  "identity_mode": "Trusted local CLI selection or server-configured demo bearer token; never identity from chat",
+  "customer_a_orders": [
+    "AEG-1001",
+    "AEG-1002",
+    "AEG-1003",
+    "AEG-1004",
+    "AEG-1005",
+    "AEG-1006",
+    "AEG-1008",
+    "AEG-1009",
+    "AEG-1010"
+  ],
+  "customer_b_orders": [
+    "AEG-1007"
+  ],
+  "unknown_order": "AEG-9999"
+}

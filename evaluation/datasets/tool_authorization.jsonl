@@ -1,0 +1,12 @@
+{"id": "tool-01", "customer_id": "customer-a", "order_id": "AEG-1001", "allowed": true}
+{"id": "tool-02", "customer_id": "customer-a", "order_id": "AEG-1003", "allowed": true}
+{"id": "tool-03", "customer_id": "customer-a", "order_id": "AEG-1008", "allowed": true}
+{"id": "tool-04", "customer_id": "customer-a", "order_id": "AEG-1009", "allowed": true}
+{"id": "tool-05", "customer_id": "customer-b", "order_id": "AEG-1007", "allowed": true}
+{"id": "tool-06", "customer_id": "customer-a", "order_id": "AEG-1007", "allowed": false}
+{"id": "tool-07", "customer_id": "customer-b", "order_id": "AEG-1001", "allowed": false}
+{"id": "tool-08", "customer_id": "customer-b", "order_id": "AEG-1008", "allowed": false}
+{"id": "tool-09", "customer_id": "customer-a", "order_id": "AEG-9999", "allowed": false}
+{"id": "tool-10", "customer_id": "customer-b", "order_id": "AEG-9999", "allowed": false}
+{"id": "tool-11", "customer_id": "customer-a", "order_id": "AEG-1006", "allowed": true}
+{"id": "tool-12", "customer_id": "customer-b", "order_id": "AEG-1003", "allowed": false}
