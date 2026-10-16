@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Aegis Support</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="brand">AEGIS</span><span class="badge">Support line</span>
+      </header>
+      <h1>How can we help?</h1>
+      <p class="intro">
+        Ask about your products or orders. Type a message, or start a voice
+        call.
+      </p>
+      <section id="connection">
+        <label for="token">Demo access token</label>
+        <div class="row">
+          <input
+            id="token"
+            type="password"
+            autocomplete="off"
+            placeholder="Enter your customer token"
+          /><button id="connect">Connect</button>
+        </div>
+        <small
+          >Use the customer token configured in your server environment.</small
+        >
+      </section>
+      <div class="callbar">
+        <span id="status" role="status">Disconnected</span>
+        <div>
+          <button id="voice" disabled>Start voice</button
+          ><button id="end" disabled class="secondary">Disconnect</button>
+        </div>
+      </div>
+      <section id="messages" role="log" aria-live="polite">
+        <p class="empty">Your conversation will appear here.</p>
+      </section>
+      <form id="composer">
+        <label class="sr" for="text">Your message</label
+        ><input
+          id="text"
+          maxlength="2000"
+          placeholder="Type your question…"
+          disabled
+        /><button id="send" disabled>Send text</button>
+      </form>
+      <footer>
+        <span
+          >Voice stays listening during playback. You can interrupt
+          naturally.</span
+        ><span id="latency"></span>
+      </footer>
+      <details>
+        <summary>Call events</summary>
+        <pre id="events"></pre>
+      </details>
+    </main>
+    <script type="module" src="/assets/app.js"></script>
+  </body>
+</html>

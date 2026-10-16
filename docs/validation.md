@@ -17,3 +17,7 @@ The provider and embedding substitutes in tests are explicit. Real Redis is exer
 ## Migration
 
 The changes-only updater checks original file hashes before modifying or retiring modules. It preserves the existing .env, Git history, virtualenv and unrelated files. Superseded scripts omitted from the upload are retired only if they match the previously delivered versions; locally modified scripts produce a conflict rather than being silently overwritten. New script names are capability-based.
+
+## Voice/frontend extension
+
+See voice-validation.md for the current combined regression suite, real native speech components, six paced scenarios and Chromium results. The original consolidated text regression cases are included in that suite.

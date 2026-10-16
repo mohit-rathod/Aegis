@@ -1,8 +1,10 @@
+from support_assistant.application.ports.embeddings import Embedder
 from support_assistant.domain.evidence import Hit
 from support_assistant.rag.documents import corpus_fingerprint
 
+
 class Retriever:
-    def __init__(self, index, documents, embedder, settings):
+    def __init__(self, index, documents, embedder: Embedder, settings):
         expected = {
             "schema_version": 1,
             "corpus_fingerprint": corpus_fingerprint(documents),
@@ -30,6 +32,8 @@ class Retriever:
                 continue
             scores.setdefault(chunk.document_id, score)
             matched.setdefault(chunk.document_id, []).append(chunk.chunk_id)
-        chosen = sorted(scores, key=lambda doc_id: -scores[doc_id])[:self.settings.top_k_documents]
+        chosen = sorted(scores, key=lambda doc_id: -scores[doc_id])[
+            : self.settings.top_k_documents
+        ]
         # Expand each matched child into its full parent policy document.
         return [Hit(self.documents[d], scores[d], tuple(matched[d])) for d in chosen]

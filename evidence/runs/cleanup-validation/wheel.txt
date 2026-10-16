@@ -1,0 +1,9 @@
+Processing ./.
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: aegis-support
+  Building wheel for aegis-support (pyproject.toml): started
+  Building wheel for aegis-support (pyproject.toml): finished with status 'done'
+  Created wheel for aegis-support: filename=aegis_support-0.3.1-py3-none-any.whl size=478153 sha256=5d2025160cb9bad9cbfa1faa5308908aedb1553ac2cf47618a194fef2177be5f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-2brp0bkt/wheels/dd/16/25/8ff2de8120e7caffa583819b309d6225dfb47467e00fd855d7
+Successfully built aegis-support

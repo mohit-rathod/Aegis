@@ -1,5 +1,6 @@
 from support_assistant.domain.evidence import Chunk
 
+
 def chunk_documents(documents, embedder, size=160, overlap=24):
     if not 0 <= overlap < size:
         raise ValueError("Invalid overlap")
@@ -10,6 +11,11 @@ def chunk_documents(documents, embedder, size=160, overlap=24):
         if size + title_tokens + 8 > embedder.max_tokens:
             raise ValueError("Chunk plus title exceeds embedding model budget")
         for i, span in enumerate(embedder.spans(doc.body, size, overlap), 1):
-            chunks.append(Chunk(f"{doc.document_id}:{i:03}", doc.document_id,
-                f"{doc.title}\n\n{span}"))
+            chunks.append(
+                Chunk(
+                    f"{doc.document_id}:{i:03}",
+                    doc.document_id,
+                    f"{doc.title}\n\n{span}",
+                )
+            )
     return chunks

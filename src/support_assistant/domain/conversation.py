@@ -1,9 +1,13 @@
 from __future__ import annotations
+
 from typing import Literal
+
 from pydantic import BaseModel, ConfigDict, Field
+
 
 class FrozenModel(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
+
 
 class Session(FrozenModel):
     session_id: str
@@ -14,10 +18,12 @@ class Session(FrozenModel):
     version: int = 0
     support_request_id: str | None = None
 
+
 class Turn(FrozenModel):
     turn_id: str = Field(min_length=1, max_length=100, pattern=r"^[A-Za-z0-9_-]+$")
     text: str = Field(max_length=2000)
     channel: Literal["text", "voice"] = "text"
+
 
 class SupportResponse(FrozenModel):
     session_id: str
@@ -28,6 +34,7 @@ class SupportResponse(FrozenModel):
     citations: tuple[str, ...] = ()
     session_state: str = "active"
     support_request_id: str | None = None
+
 
 class SupportError(RuntimeError):
     def __init__(self, code: str):

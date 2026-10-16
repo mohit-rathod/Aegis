@@ -1,0 +1,2 @@
+{"metric": "playback_stop_roundtrip_ms", "samples": 3, "p50_ms": 0.19, "p95_ms": 0.22}
+{"metric": "speech_frame_arrival_to_first_audio_sent_ms", "samples": 2, "p50_ms": 2277.14, "p95_ms": 2296.2}

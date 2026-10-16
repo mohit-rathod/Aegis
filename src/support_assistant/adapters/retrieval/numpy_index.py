@@ -1,10 +1,13 @@
-from dataclasses import asdict
-from pathlib import Path
 import json
 import os
 import uuid
+from dataclasses import asdict
+from pathlib import Path
+
 import numpy as np
+
 from support_assistant.domain.evidence import Chunk
+
 
 class NumpyIndex:
     def __init__(self, vectors, chunks, metadata):
@@ -24,9 +27,12 @@ class NumpyIndex:
         directory.mkdir(parents=True, exist_ok=True)
         temp = directory / f".index-{uuid.uuid4().hex}.npz"
         try:
-            np.savez_compressed(temp, vectors=self.vectors,
+            np.savez_compressed(
+                temp,
+                vectors=self.vectors,
                 chunks=np.array(json.dumps([asdict(c) for c in self.chunks])),
-                metadata=np.array(json.dumps(self.metadata)))
+                metadata=np.array(json.dumps(self.metadata)),
+            )
             os.replace(temp, directory / "index.npz")
         finally:
             temp.unlink(missing_ok=True)
@@ -34,9 +40,11 @@ class NumpyIndex:
     @classmethod
     def load(cls, directory: Path):
         with np.load(directory / "index.npz", allow_pickle=False) as data:
-            return cls(data["vectors"].copy(),
+            return cls(
+                data["vectors"].copy(),
                 [Chunk(**c) for c in json.loads(data["chunks"].item())],
-                json.loads(data["metadata"].item()))
+                json.loads(data["metadata"].item()),
+            )
 
     def ranked_chunks(self, query_vector):
         q = np.asarray(query_vector, dtype=np.float32)
@@ -46,5 +54,7 @@ class NumpyIndex:
         if norm < 1e-8:
             raise ValueError("Empty query vector")
         scores = self.vectors @ (q / norm)
-        return [(self.chunks[int(i)], float(scores[i]))
-            for i in np.argsort(-scores, kind="stable")]
+        return [
+            (self.chunks[int(i)], float(scores[i]))
+            for i in np.argsort(-scores, kind="stable")
+        ]

@@ -1,0 +1,87 @@
+benchmark_support.py
+usage: benchmark_support.py [-h] [--redis-url REDIS_URL] [--sessions SESSIONS]
+                            [--turns TURNS] [--concurrency CONCURRENCY]
+                            [--output OUTPUT]
+
+options:
+  -h, --help            show this help message and exit
+  --redis-url REDIS_URL
+  --sessions SESSIONS
+  --turns TURNS
+  --concurrency CONCURRENCY
+  --output OUTPUT
+
+evaluate_retrieval.py
+usage: evaluate_retrieval.py [-h] [--answers] [--dataset DATASET]
+                             [--output OUTPUT]
+
+Evaluate retrieval and optional full support answers
+
+options:
+  -h, --help         show this help message and exit
+  --answers          Also call the shared support service with live Groq
+  --dataset DATASET
+  --output OUTPUT
+
+evaluate_support.py
+usage: evaluate_support.py [-h]
+                           [--suite {all,routing,ambiguity,input,output,tools,cache}]
+                           --live [--output OUTPUT]
+
+options:
+  -h, --help            show this help message and exit
+  --suite {all,routing,ambiguity,input,output,tools,cache}
+  --live                Explicitly authorize real Groq evaluation calls
+  --output OUTPUT
+
+run_evaluation.py
+usage: run_evaluation.py [-h] [--answers] [--dataset DATASET]
+                         [--output OUTPUT]
+
+Evaluate retrieval and optional full support answers
+
+options:
+  -h, --help         show this help message and exit
+  --answers          Also call the shared support service with live Groq
+  --dataset DATASET
+  --output OUTPUT
+
+run_support_scenarios.py
+usage: run_support_scenarios.py [-h] [--scripted] [--redis-url REDIS_URL]
+                                [--output OUTPUT]
+
+options:
+  -h, --help            show this help message and exit
+  --scripted            Use test doubles; not a live quality evaluation
+  --redis-url REDIS_URL
+  --output OUTPUT
+
+run_voice_scenarios.py
+usage: run_voice_scenarios.py [-h] (--scripted | --live)
+                              [--redis-url REDIS_URL] [--vad-model VAD_MODEL]
+                              [--tts-model TTS_MODEL] [--output OUTPUT]
+
+options:
+  -h, --help            show this help message and exit
+  --scripted
+  --live
+  --redis-url REDIS_URL
+  --vad-model VAD_MODEL
+  --tts-model TTS_MODEL
+  --output OUTPUT
+
+setup_voice.py
+usage: setup_voice.py [-h] [--directory DIRECTORY]
+
+options:
+  -h, --help            show this help message and exit
+  --directory DIRECTORY
+
+summarize_voice_latency.py
+usage: summarize_voice_latency.py [-h] trace
+
+positional arguments:
+  trace
+
+options:
+  -h, --help  show this help message and exit

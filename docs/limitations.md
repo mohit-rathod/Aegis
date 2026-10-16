@@ -12,4 +12,8 @@
 - Per-worker provider limits need a deployment-wide quota budget. The package does not dynamically discover or enforce an account's global token quota.
 - Only one handler runs per turn. Unrelated mixed issues clarify; an unrestricted cross-agent loop is deliberately absent.
 - Refund and escalation policies remain the approved demo rules. This structural refactor does not change KB content or require a new index.
-- All public channels use the same async SupportService; future voice integration must reuse this boundary.
+- Text, browser voice and HTTP channels use the same async SupportService. Voice is a browser support-line demo; no PSTN integration or production speakerphone echo guarantee is provided.
+
+- The included voice evidence uses synthetic input, real VAD/Piper/Redis, and scripted STT/LLM responses. No physical microphone, live Groq quality, accent coverage or production voice concurrency was measured in this environment.
+- The English demo uses configurable acoustic endpointing and one English voice. Sustained background speech can interrupt; multilingual output, adaptive semantic endpointing and validated speakerphone AEC remain future work.
+- Piper workers start per response for cancellation isolation. This adds startup latency; synthesis and playback deadlines can truncate long speech and use the recorded fallback while the full validated answer remains visible.

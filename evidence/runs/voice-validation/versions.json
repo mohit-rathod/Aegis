@@ -1,0 +1,16 @@
+{
+  "python": "3.12.14",
+  "dependencies": {
+    "piper-tts": "1.8.0",
+    "onnxruntime": "1.31.0",
+    "httpx": "0.28.1",
+    "redis": "8.1.0",
+    "fastapi": "0.143.2",
+    "uvicorn": "0.54.0"
+  },
+  "models": {
+    "voice.onnx": "5efe09e69902187827af646e1a6e9d269dee769f9877d17b16b1b46eeaaf019f",
+    "voice.onnx.json": "efe19c417bed055f2d69908248c6ba650fa135bc868b0e6abb3da181dab690a0",
+    "silero_vad.onnx": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3"
+  }
+}

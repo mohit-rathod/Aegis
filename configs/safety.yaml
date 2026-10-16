@@ -1,6 +1,0 @@
-# Executable rules live in safety/regex_guard.py and prompts/input_guard.md.
-input_layers: [request_validation, regex_guard, semantic_guard]
-required_input_check_failure: fail_closed
-output_layers: [evidence_validation, controlled_transaction_templates, semantic_rag_verification]
-refund_message_requires: [approved_and_initiated, initiation_timestamp, original_payment_source]
-escalation_message_requires: atomic_support_request_and_session_commit

@@ -1,12 +1,16 @@
-from datetime import datetime, timezone
 import importlib.metadata
-from support_assistant.rag.documents import load_documents, corpus_fingerprint
-from support_assistant.rag.chunking import chunk_documents
+from datetime import datetime, timezone
+
 from support_assistant.adapters.retrieval.numpy_index import NumpyIndex
+from support_assistant.rag.chunking import chunk_documents
+from support_assistant.rag.documents import corpus_fingerprint, load_documents
+
 
 def build_index(settings, embedder):
     documents = load_documents(settings.kb_dir)
-    chunks = chunk_documents(documents, embedder, settings.chunk_tokens, settings.chunk_overlap)
+    chunks = chunk_documents(
+        documents, embedder, settings.chunk_tokens, settings.chunk_overlap
+    )
     vectors = embedder.encode([c.text for c in chunks])
     try:
         library_version = importlib.metadata.version("sentence-transformers")
@@ -22,7 +26,8 @@ def build_index(settings, embedder):
         "chunk_tokens": settings.chunk_tokens,
         "chunk_overlap": settings.chunk_overlap,
         "built_at": datetime.now(timezone.utc).isoformat(),
-        "document_count": len(documents), "chunk_count": len(chunks),
+        "document_count": len(documents),
+        "chunk_count": len(chunks),
     }
     index = NumpyIndex(vectors, chunks, metadata)
     index.save(settings.index_dir)

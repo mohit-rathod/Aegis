@@ -1,11 +1,15 @@
+import os
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
-import os
+
+from support_assistant.voice.settings import VoiceSettings
+
 
 @dataclass(frozen=True)
 class Settings:
     """Environment-backed configuration shared by every application channel."""
+
     kb_dir: Path = Path("data/knowledge_base")
     index_dir: Path = Path("var/indexes/aegis")
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
@@ -33,6 +37,7 @@ class Settings:
     admin_token: str = field(default="", repr=False)
     fixture_path: Path = Path("data/fixtures/orders.json")
     demo_as_of: str = ""
+    voice: VoiceSettings = field(default_factory=VoiceSettings)
 
     def __post_init__(self):
         if not 1 <= self.top_k_documents <= 15:
@@ -43,11 +48,20 @@ class Settings:
             raise ValueError("chunk_tokens must be between 16 and 512")
         if not 0 <= self.chunk_overlap < self.chunk_tokens:
             raise ValueError("overlap must be smaller than chunk size")
-        for key in ["provider_timeout", "session_ttl", "classifier_ttl", "classifier_max_entries",
-                    "turn_timeout", "max_active", "provider_concurrency", "embedding_workers", "max_embedding_pending"]:
+        for key in [
+            "provider_timeout",
+            "session_ttl",
+            "classifier_ttl",
+            "classifier_max_entries",
+            "turn_timeout",
+            "max_active",
+            "provider_concurrency",
+            "embedding_workers",
+            "max_embedding_pending",
+        ]:
             if getattr(self, key) <= 0:
                 raise ValueError(f"{key} must be positive")
-        if not self.prefix or any(c in self.prefix for c in '{}*? '):
+        if not self.prefix or any(c in self.prefix for c in "{}*? "):
             raise ValueError("Invalid Redis prefix")
         if self.demo_a_token and self.demo_a_token == self.demo_b_token:
             raise ValueError("Demo customer tokens must differ")
@@ -57,11 +71,14 @@ class Settings:
     @classmethod
     def from_env(cls):
         from dotenv import load_dotenv
+
         load_dotenv(dotenv_path=Path.cwd() / ".env", override=False)
         return cls(
             kb_dir=Path(os.getenv("AEGIS_KB_DIR", "data/knowledge_base")),
             index_dir=Path(os.getenv("AEGIS_INDEX_DIR", "var/indexes/aegis")),
-            embedding_model=os.getenv("AEGIS_EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"),
+            embedding_model=os.getenv(
+                "AEGIS_EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+            ),
             embedding_revision=os.getenv("AEGIS_EMBEDDING_REVISION", "main"),
             chunk_tokens=int(os.getenv("AEGIS_CHUNK_TOKENS", "160")),
             chunk_overlap=int(os.getenv("AEGIS_CHUNK_OVERLAP", "24")),
@@ -75,7 +92,9 @@ class Settings:
             prefix=os.getenv("AEGIS_REDIS_PREFIX", "aegis"),
             session_ttl=int(os.getenv("AEGIS_SESSION_TTL", "86400")),
             classifier_ttl=int(os.getenv("AEGIS_CLASSIFIER_TTL", "300")),
-            classifier_max_entries=int(os.getenv("AEGIS_CLASSIFIER_MAX_ENTRIES", "1000")),
+            classifier_max_entries=int(
+                os.getenv("AEGIS_CLASSIFIER_MAX_ENTRIES", "1000")
+            ),
             turn_timeout=float(os.getenv("AEGIS_TURN_TIMEOUT", "60")),
             max_active=int(os.getenv("AEGIS_MAX_ACTIVE_PER_WORKER", "32")),
             provider_concurrency=int(os.getenv("AEGIS_PROVIDER_CONCURRENCY", "16")),
@@ -84,6 +103,9 @@ class Settings:
             demo_a_token=os.getenv("AEGIS_DEMO_CUSTOMER_A_TOKEN", ""),
             demo_b_token=os.getenv("AEGIS_DEMO_CUSTOMER_B_TOKEN", ""),
             admin_token=os.getenv("AEGIS_ADMIN_TOKEN", ""),
-            fixture_path=Path(os.getenv("AEGIS_ORDER_FIXTURES", "data/fixtures/orders.json")),
+            fixture_path=Path(
+                os.getenv("AEGIS_ORDER_FIXTURES", "data/fixtures/orders.json")
+            ),
             demo_as_of=os.getenv("AEGIS_DEMO_AS_OF", "").strip(),
+            voice=VoiceSettings.from_env(),
         )

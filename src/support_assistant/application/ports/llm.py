@@ -1,8 +1,14 @@
 from typing import Protocol
 
+
 class JsonLLM(Protocol):
     model: str
+
     async def complete_json(self, system: str, payload: dict) -> dict: ...
-    async def chat(self, messages: list[dict], tools: list[dict] | None = None,
-                   force_tool: bool = False) -> dict: ...
+    async def chat(
+        self,
+        messages: list[dict],
+        tools: list[dict] | None = None,
+        force_tool: bool = False,
+    ) -> dict: ...
     async def aclose(self) -> None: ...

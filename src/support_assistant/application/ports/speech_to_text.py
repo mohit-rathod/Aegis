@@ -1,0 +1,6 @@
+from typing import Protocol
+
+
+class SpeechToText(Protocol):
+    async def transcribe(self, pcm: bytes) -> str: ...
+    async def aclose(self) -> None: ...

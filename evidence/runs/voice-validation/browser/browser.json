@@ -1,0 +1,9 @@
+{
+  "mode": "chromium_fake_microphone_scripted_stt_llm_real_vad_piper_redis",
+  "physical_microphone": false,
+  "page_errors": [],
+  "mobile_overflow": false,
+  "text_and_voice_passed": true,
+  "events": "",
+  "latency_label": "Response: 2.27s"
+}

@@ -1,0 +1,1 @@
+Prettier 3.6.2: all matched frontend assets and tests/frontend/check_frontend.mjs passed formatting check.

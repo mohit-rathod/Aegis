@@ -1,0 +1,70 @@
+{
+  "tests": {
+    "passed": 105,
+    "skipped": 0,
+    "redis": "real ephemeral 6.2.14",
+    "native_piper": true
+  },
+  "scenarios": [
+    {
+      "scenario": "silence",
+      "passed": true,
+      "speech_interruptions": 0,
+      "voice_turns": 0,
+      "recoveries": []
+    },
+    {
+      "scenario": "noise",
+      "passed": true,
+      "speech_interruptions": 0,
+      "voice_turns": 0,
+      "recoveries": []
+    },
+    {
+      "scenario": "interruption",
+      "passed": true,
+      "speech_interruptions": 1,
+      "voice_turns": 1,
+      "recoveries": []
+    },
+    {
+      "scenario": "false_start_then_interruption",
+      "passed": true,
+      "speech_interruptions": 1,
+      "voice_turns": 1,
+      "recoveries": []
+    },
+    {
+      "scenario": "stt_failure",
+      "passed": true,
+      "speech_interruptions": 0,
+      "voice_turns": 0,
+      "recoveries": [
+        "stt"
+      ]
+    },
+    {
+      "scenario": "tts_failure",
+      "passed": true,
+      "speech_interruptions": 0,
+      "voice_turns": 0,
+      "recoveries": [
+        "tts"
+      ]
+    }
+  ],
+  "browser": {
+    "mode": "chromium_fake_microphone_scripted_stt_llm_real_vad_piper_redis",
+    "physical_microphone": false,
+    "page_errors": [],
+    "mobile_overflow": false,
+    "text_and_voice_passed": true,
+    "latency_label": "Response: 2.27s"
+  },
+  "source_sha256": "f1f38bb910613512f8eab12c82a520704ef4ac12aa079b490d5a70315a700e23",
+  "limits": [
+    "Groq STT and LLM substituted in recorded runs",
+    "Chromium fake microphone; no physical microphone test",
+    "No live Groq quality or production concurrency measurement"
+  ]
+}

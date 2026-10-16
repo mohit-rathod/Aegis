@@ -1,8 +1,11 @@
 import hashlib
 import json
 from pathlib import Path
+
 import yaml
+
 from support_assistant.domain.evidence import Document
+
 
 def load_documents(kb_dir: Path) -> list[Document]:
     root = kb_dir.resolve()
@@ -31,11 +34,20 @@ def load_documents(kb_dir: Path) -> list[Document]:
         body = parts[2].strip()
         if not body:
             raise ValueError("Empty document")
-        docs.append(Document(entry["document_id"], entry["title"], entry["path"],
-            entry["version"], body, digest))
+        docs.append(
+            Document(
+                entry["document_id"],
+                entry["title"],
+                entry["path"],
+                entry["version"],
+                body,
+                digest,
+            )
+        )
     if not docs or len(docs) != manifest["document_count"]:
         raise ValueError("Document count mismatch")
     return docs
+
 
 def corpus_fingerprint(documents: list[Document]) -> str:
     payload = sorted((d.document_id, d.path, d.version, d.sha256) for d in documents)

@@ -3,8 +3,8 @@
 | Requirement | Implementation | Evidence |
 |---|---|---|
 | Three-intent Groq router | routing/classifier.py, routing/registry.py | routing.jsonl and live runner |
-| Embedding RAG | existing rag modules + agents/async_product_question.py | original KB/index checks and grounding seeds |
-| Native tool calling | adapters/groq/async_client.py, agents/order_status.py | adapter contract and authorization tests |
+| Embedding RAG | existing rag modules + agents/product_question.py | original KB/index checks and grounding seeds |
+| Native tool calling | adapters/groq/client.py, agents/order_status.py | adapter contract and authorization tests |
 | Regex and semantic input guards | safety/regex_guard.py, prompts/input_guard.md | blocked/failed-input tests |
 | No unchecked dispatch | domain/safety.py, application/guarded_dispatcher.py | missing/mismatched approval tests |
 | Output commitments grounded | application/response_service.py, tool evidence vault | forged evidence/refund/eligibility tests |
@@ -17,3 +17,8 @@
 | Fourth-agent extension | versioned registry boundary | documented only; deferred |
 | Honest failures | red-team-findings.md | two observed component false positives |
 | Real commit history | user's existing Git repository | never generated or backdated by this patch |
+| Browser text/voice controls | entrypoints/web + authenticated WebSocket | Chromium/Node checks |
+| Groq Whisper transcription | adapters/groq/speech_to_text.py | multipart/retry/deadline tests; live-run command |
+| Interruptible Piper output | adapters/tts/piper.py + voice/playback_controller.py | native synthesis/cancellation and failure fixtures |
+| Speech/noise discrimination | Silero + voice/endpointing.py | six paced scenarios and VAD fixture replay |
+| Latency reporting | coordinator + browser playback clock | separate server/client estimates, explicit test mode |

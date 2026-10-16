@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aegis-support"
-version = "0.2.0"
+version = "0.3.1"
 description = "Aegis customer support assistant with guarded routing, retrieval and tools"
 requires-python = ">=3.11"
 dependencies = [
@@ -19,6 +19,10 @@ dependencies = [
   "uvicorn>=0.30,<1",
 ]
 
+[project.optional-dependencies]
+voice = ["onnxruntime>=1.18,<2", "piper-tts>=1.3,<2", "websockets>=13,<16"]
+dev = ["ruff==0.17.1"]
+
 [project.scripts]
 aegis-rag = "support_assistant.entrypoints.cli:main"
 aegis-support = "support_assistant.entrypoints.cli:main"
@@ -27,4 +31,15 @@ aegis-support = "support_assistant.entrypoints.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-support_assistant = ["prompts/*.md", "prompts/*.json"]
+support_assistant = ["prompts/*.md", "prompts/*.json", "entrypoints/web/*", "adapters/tts/recovery/*.wav"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*.py" = ["E402"]
+"tests/frontend/browser_smoke.py" = ["E402"]
