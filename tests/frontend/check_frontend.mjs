@@ -1,5 +1,6 @@
 // Dependency-free transport/audio contract checks. This is not a physical-browser test.
 import assert from "node:assert/strict";
+import { webcrypto } from "node:crypto";
 import fs from "node:fs";
 import vm from "node:vm";
 const root = new URL(
@@ -93,6 +94,14 @@ class AudioWorkletNode {
 }
 const context = vm.createContext({
   document,
+  crypto: webcrypto,
+  sessionStorage: {
+    getItem() {
+      return null;
+    },
+    setItem() {},
+    removeItem() {},
+  },
   WebSocket,
   AudioContext,
   AudioWorkletNode,
@@ -137,13 +146,16 @@ vm.runInContext(fs.readFileSync(new URL("app.js", root), "utf8"), context);
 document.getElementById("token").value = "demo-a";
 await elements.get("connect").onclick();
 socket.onopen();
+const flush = () => new Promise((resolve) => setImmediate(resolve));
 assert.equal(JSON.parse(socket.sent[0]).token, "demo-a");
 await socket.onmessage({ data: JSON.stringify({ type: "ready" }) });
+await flush();
 elements.get("text").value = "Where is my order?";
 elements.get("composer").onsubmit({ preventDefault() {} });
 assert.equal(JSON.parse(socket.sent.at(-1)).type, "text");
 await elements.get("voice").onclick();
 await socket.onmessage({ data: JSON.stringify({ type: "voice_ready" }) });
+await flush();
 worklet.port.onmessage({ data: new ArrayBuffer(1024) });
 assert.equal(socket.sent.at(-1).byteLength, 1032);
 await socket.onmessage({
@@ -153,6 +165,7 @@ await socket.onmessage({
     captured_at_ms: performance.now() - 1000,
   }),
 });
+await flush();
 const packet = {
   type: "audio",
   playback_id: "p1",
@@ -161,13 +174,16 @@ const packet = {
   pcm: Buffer.alloc(2048).toString("base64"),
 };
 await socket.onmessage({ data: JSON.stringify(packet) });
+await flush();
 assert.equal(sources.length, 1);
 assert.ok(sources[0].started);
 await socket.onmessage({
   data: JSON.stringify({ type: "audio_stop", playback_id: "p1" }),
 });
+await flush();
 assert.ok(sources[0].stopped);
 await socket.onmessage({ data: JSON.stringify(packet) });
+await flush();
 assert.equal(sources.length, 1, "Stale audio must not create a source");
 assert.ok(
   socket.sent.some(

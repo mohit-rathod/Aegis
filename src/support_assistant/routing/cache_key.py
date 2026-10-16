@@ -9,6 +9,7 @@ def cache_key(session, text, model, prompt_hash):
     context = {
         "last_order_id": session.last_order_id,
         "pending_intent": session.pending_intent,
+        "human_resolution": session.human_resolution,
     }
     payload = [text.strip(), context, model, prompt_hash, REGISTRY_VERSION]
     return hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()

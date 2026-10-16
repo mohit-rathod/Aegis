@@ -38,8 +38,14 @@ class Settings:
     fixture_path: Path = Path("data/fixtures/orders.json")
     demo_as_of: str = ""
     voice: VoiceSettings = field(default_factory=VoiceSettings)
+    demo_faults_enabled: bool = False
 
     def __post_init__(self):
+        if self.admin_token and self.admin_token in [
+            self.demo_a_token,
+            self.demo_b_token,
+        ]:
+            raise ValueError("AEGIS_ADMIN_TOKEN must differ from customer tokens")
         if not 1 <= self.top_k_documents <= 15:
             raise ValueError("top_k_documents must be between 1 and 15")
         if not 0 <= self.min_similarity <= 1:
@@ -108,4 +114,6 @@ class Settings:
             ),
             demo_as_of=os.getenv("AEGIS_DEMO_AS_OF", "").strip(),
             voice=VoiceSettings.from_env(),
+            demo_faults_enabled=os.getenv("AEGIS_ENABLE_DEMO_FAULTS", "").lower()
+            in ["1", "true", "yes"],
         )

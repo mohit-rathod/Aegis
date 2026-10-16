@@ -17,7 +17,7 @@
         call.
       </p>
       <section id="connection">
-        <label for="token">Demo access token</label>
+        <label for="token">Customer access token</label>
         <div class="row">
           <input
             id="token"
@@ -27,14 +27,23 @@
           /><button id="connect">Connect</button>
         </div>
         <small
-          >Use the customer token configured in your server environment.</small
+          >Your session resumes on this browser until you end the
+          conversation.</small
         >
       </section>
+      <div id="session-info" class="session-info"></div>
+      <div id="pipeline" class="muted"></div>
       <div class="callbar">
-        <span id="status" role="status">Disconnected</span>
+        <div>
+          <span id="status" role="status">Disconnected</span
+          ><span id="session-state" class="badge">AI assistant</span>
+        </div>
         <div>
           <button id="voice" disabled>Start voice</button
-          ><button id="end" disabled class="secondary">Disconnect</button>
+          ><button id="end" disabled class="danger">End conversation</button
+          ><button id="disconnect" disabled class="secondary">
+            Disconnect
+          </button>
         </div>
       </div>
       <section id="messages" role="log" aria-live="polite">
@@ -55,10 +64,23 @@
           naturally.</span
         ><span id="latency"></span>
       </footer>
+      <details open>
+        <summary>Response timing</summary>
+        <div id="metrics" class="metric-grid">
+          Metrics appear after a response.
+        </div>
+        <small
+          >Audio time is measured to the first scheduled browser sample, not
+          physical sound at your ear.</small
+        >
+      </details>
       <details>
         <summary>Call events</summary>
         <pre id="events"></pre>
       </details>
+      <footer>
+        <a href="/admin" target="_blank" rel="noopener">Staff sign-in</a>
+      </footer>
     </main>
     <script type="module" src="/assets/app.js"></script>
   </body>

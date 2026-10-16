@@ -12,11 +12,33 @@ class FrozenModel(BaseModel):
 class Session(FrozenModel):
     session_id: str
     customer_id: str
-    state: Literal["active", "awaiting_clarification", "terminated"] = "active"
+    state: Literal[
+        "active",
+        "awaiting_clarification",
+        "waiting_for_human",
+        "human_active",
+        "terminated",
+    ] = "active"
     last_order_id: str | None = None
     pending_intent: str | None = None
     version: int = 0
     support_request_id: str | None = None
+    history: tuple["ChatMessage", ...] = ()
+    message_sequence: int = 0
+    human_resolution: str | None = None
+
+
+class ChatMessage(FrozenModel):
+    message_id: str
+    sequence: int
+    role: Literal["customer", "assistant", "human", "system"]
+    text: str
+    created_at: str
+    kind: str = "message"
+    turn_id: str | None = None
+
+
+Session.model_rebuild()
 
 
 class Turn(FrozenModel):

@@ -30,3 +30,6 @@ AEGIS_STT_TIMEOUT=12
 AEGIS_TTS_TIMEOUT=30
 AEGIS_VOICE_MAX_CONNECTIONS=32
 AEGIS_SPEECH_CONCURRENCY=4
+
+# Explicit local demo only: enable admin one-shot provider failure controls.
+AEGIS_ENABLE_DEMO_FAULTS=false

@@ -3,6 +3,7 @@ import json
 import uuid
 from contextlib import asynccontextmanager
 
+from support_assistant.application.history import turn_history
 from support_assistant.domain.conversation import Session, SupportError, SupportResponse
 
 COMMIT = """
@@ -51,6 +52,41 @@ class RedisSessionStore:
             raise SupportError("session_not_available")
         return session
 
+    async def get_internal(self, sid):
+        raw = await self.redis.get(self.key(sid))
+        if raw is None:
+            raise SupportError("session_not_available")
+        return Session.model_validate_json(raw)
+
+    async def get_request(self, request_id):
+        raw = await self.redis.get(f"{self.prefix}:support:{request_id}")
+        if not raw:
+            raise SupportError("support_request_not_available")
+        return json.loads(raw)
+
+    async def save(self, session, token, support_request=None):
+        request_id = support_request["request_id"] if support_request else "none"
+        script = """
+if redis.call('GET',KEYS[1]) ~= ARGV[1] then return 0 end
+if ARGV[3] ~= '' then redis.call('MSET',KEYS[2],ARGV[2],KEYS[3],ARGV[3])
+else redis.call('SET',KEYS[2],ARGV[2]) end
+redis.call('EXPIRE',KEYS[2],ARGV[4])
+return 1
+"""
+        ok = await self.redis.eval(
+            script,
+            3,
+            f"{self.key(session.session_id)}:lock",
+            self.key(session.session_id),
+            f"{self.prefix}:support:{request_id}",
+            token,
+            session.model_dump_json(),
+            json.dumps(support_request) if support_request else "",
+            self.ttl,
+        )
+        if not ok:
+            raise SupportError("session_lease_lost")
+
     @asynccontextmanager
     async def lease(self, sid):
         key = f"{self.key(sid)}:lock"
@@ -80,6 +116,7 @@ class RedisSessionStore:
         return SupportResponse.model_validate(saved["response"])
 
     async def commit(self, session, turn, response, token, support_request=None):
+        session = turn_history(session, turn, response)
         reply = json.dumps(
             {
                 "fingerprint": self.fingerprint(turn),

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Aegis support console</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="brand">AEGIS</span
+        ><span class="badge">Human support console</span>
+      </header>
+      <h1>Support inbox</h1>
+      <p class="intro">
+        A chat opens only after the assistant creates a human-support handoff.
+      </p>
+      <div class="row">
+        <input
+          id="admin-token"
+          type="password"
+          autocomplete="off"
+          aria-label="Admin access token"
+          placeholder="Admin access token"
+        /><button id="admin-connect">Sign in</button
+        ><button id="admin-signout" class="secondary" disabled>Sign out</button>
+      </div>
+      <p id="admin-status" role="status">Not connected</p>
+      <section id="inbox"></section>
+      <section id="human-chat" hidden>
+        <h2 id="ticket-title">Conversation</h2>
+        <div id="handoff-summary" class="summary"></div>
+        <section id="admin-messages" role="log" aria-live="polite"></section>
+        <button id="claim">Join chat</button>
+        <form id="admin-composer">
+          <input
+            id="admin-text"
+            maxlength="2000"
+            placeholder="Your reply to the customer…"
+            aria-label="Human reply"
+            disabled
+          /><button id="admin-send" disabled>Send reply</button>
+        </form>
+        <label for="resolution">Final resolution note (optional)</label
+        ><textarea
+          id="resolution"
+          rows="3"
+          maxlength="2000"
+          placeholder="Optional final note. Ending the handoff automatically summarizes the recent human replies and sends the result to the customer."
+        ></textarea
+        ><button id="resolve" class="danger" disabled>
+          End human chat and return to AI
+        </button>
+      </section>
+      <details>
+        <summary>Local demo failure controls</summary>
+        <p>
+          Requires AEGIS_ENABLE_DEMO_FAULTS=true on the server. Arm one failure
+          in an ongoing call; it expires in five minutes.
+        </p>
+        <label for="fault-session">Customer session ID</label
+        ><input
+          id="fault-session"
+          placeholder="Copy from the customer page"
+        /><label for="fault-kind">Failure</label
+        ><select id="fault-kind">
+          <option value="stt_transient">
+            STT: one transient timeout, then real retry
+          </option>
+          <option value="stt_auth">
+            STT: one actual request with an invalid credential
+          </option>
+          <option value="tts_midstream">
+            TTS: fail after real playback starts
+          </option></select
+        ><button id="arm-fault" disabled>Arm next failure</button>
+        <p id="fault-status" role="status"></p>
+      </details>
+    </main>
+    <script type="module" src="/assets/admin.js"></script>
+  </body>
+</html>

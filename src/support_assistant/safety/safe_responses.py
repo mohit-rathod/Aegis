@@ -10,7 +10,7 @@ MESSAGES = {
     "semantic_block": "I cannot bypass authorization or support policies. Please ask a permitted Aegis support question.",
     "unavailable": "I could not complete the required checks. Please retry or use human support.",
     "busy": "This session is processing a message or the service is busy. Please retry shortly.",
-    "terminated": "This chat has ended after escalation to support. Please start a new chat for another request.",
+    "terminated": "This conversation has ended. Please start a new conversation for another request.",
     "abstain": "I do not have enough confirmed information in the Aegis knowledge base. Please clarify your question or request human support.",
     "tool_required": "That requires an authorized order check. Please provide your Aegis order reference.",
     "order_not_available": "I could not retrieve that order for this session. Please verify the reference or contact support.",

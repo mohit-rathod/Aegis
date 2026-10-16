@@ -59,7 +59,7 @@ async def run(args):
             ),
             ("denied", "Check AEG-1007.", "order_status", "get_order_status"),
             ("escalation", "I want a human.", "escalate_to_human", None),
-            ("terminated", "Another question.", "product_question", None),
+            ("human-message", "Another question.", "product_question", None),
         ]
         for name, text, intent, tool in steps:
             if args.scripted:

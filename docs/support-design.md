@@ -34,7 +34,7 @@ Raw approval without initiation is inconsistent and fails closed. The assistant 
 
 The handler prepares a bounded customer-statement summary and separately labeled verified order reference. ResponseService prepares the controlled success message. Redis commits session termination, the replay response, and the support-intake record in one atomic MSET inside a lease-checked Lua script. Data values are written by one command, avoiding partial business records if a later independent queue write fails. The support inbox is the durable set of request keys, not a separate stream whose publication could fail after a success reply was saved. The admin endpoint discovers records through bounded scan iteration. This simple inbox has no chronological ordering, human assignment, acknowledgement, or live agent integration yet.
 
-The requested success message is delivered only after persistence succeeds. Retrying the same turn replays it without duplicating intake. Subsequent messages are rejected because the session is terminated. In-flight escalation is protected by the session lease; no separate durable escalation_pending state is needed for this atomic local demo transition.
+The requested success message is delivered only after persistence succeeds. Retrying the same turn replays it without duplicating intake. Subsequent messages go to the human handoff instead of AI routing. Claim enters human_active; extractive admin resolution resumes active. Customer termination rejects future messages. In-flight escalation is protected by the session lease; no separate durable escalation_pending state is needed for this atomic local demo transition.
 
 ## Cache
 

@@ -1,6 +1,6 @@
 # Aegis Support Assistant
 
-One customer-support application with text and voice input, a three-intent Groq router, embedding-based product answers, authorized order tools, classifier caching and persistent human-support intake. FastAPI serves the basic frontend; no separate frontend build is needed.
+One customer-support application with text and voice input, a three-intent Groq router, embedding-based product answers, authorized order tools, classifier caching and live human-support handoff. FastAPI serves the basic frontend; no separate frontend build is needed.
 
 Read [ARCHITECTURE.md](ARCHITECTURE.md) for the request flow and file responsibilities.
 
@@ -45,7 +45,7 @@ If `.env` already exists, keep it and merge only missing settings. Edit these va
 | `HF_TOKEN` | Optional authentication for public embedding-model downloads; set your Hugging Face token if needed. |
 | `AEGIS_DEMO_CUSTOMER_A_TOKEN` | A random nonempty browser/API token for `customer-a`. |
 | `AEGIS_DEMO_CUSTOMER_B_TOKEN` | Optional second customer's token; it must differ from customer A's token. |
-| `AEGIS_ADMIN_TOKEN` | Optional separate token for admin endpoints. |
+| `AEGIS_ADMIN_TOKEN` | Separate admin token, required for human chat; it must differ from every customer token. |
 | `AEGIS_REDIS_URL` | Defaults to `redis://127.0.0.1:6379/0`. |
 | `AEGIS_DEMO_AS_OF` | Keep `2026-10-16` to reproduce the dated order-fixture examples. Empty uses the current date in Asia/Kolkata. |
 
@@ -99,7 +99,7 @@ Try:
 - During playback: `Wait, wrong order.`
 - `I want to speak to a human.`
 
-A successful escalation ends that session. Reconnect with your token to begin a new one. Customer A cannot access customer B's `AEG-1007` order.
+A successful escalation pauses AI replies. Open **http://localhost:8000/admin**, sign in with `AEGIS_ADMIN_TOKEN`, select the handoff and click **Join chat**. The admin sees its summary and requested help before replying. Customer and admin messages are shared; human replies are spoken when customer voice is enabled. **End human chat and return to AI** sends an extractive resolution and resumes the same AI session. Customer **End conversation** closes both sides. **Disconnect** preserves the session for reconnection. Customer A cannot access customer B's `AEG-1007` order.
 
 Speech models are checksum-verified setup downloads, not bundled weights. Missing speech assets do not prevent text support. Remote microphone access requires HTTPS; localhost works for development. This is a web support-line demo, not a PSTN integration.
 
@@ -122,7 +122,7 @@ The API runs on the same server. Open `/docs` for its HTTP schema.
 | `POST /sessions/{id}/messages` | Same customer's token; body contains `turn_id`, `text`, optional `channel`. |
 | `WS /sessions/{id}/channel` | Browser text/voice; first message authenticates the token. |
 | `GET /admin/classifier-metrics` | Admin token; hit/miss/coalescing counters. |
-| `GET /admin/support-requests` | Admin token; bounded inspection of persisted demo intake. |
+| `GET /admin/support-requests` | Admin token; waiting/active human handoffs. |
 
 HTTP retries must reuse the same `turn_id` **and** message. Conflicting reuse is rejected. Identity comes from server configuration, never chat text.
 
@@ -180,12 +180,26 @@ npx --yes prettier@3.6.2 --check 'src/support_assistant/entrypoints/web/*' tests
 | Hugging Face unauthenticated warning | Check `.env` location and `HF_TOKEN`; restart, and check for stale exported environment values. |
 | Microphone unavailable | Use localhost/HTTPS, allow browser permission, select the right device and try a headset. |
 | Voice setup or playback fails | Install `.[voice]`, run `scripts/setup_voice.py`, verify configured model paths and inspect the recovery/category event. Text remains available. |
-| No response after asking for a human | That session is intentionally terminated; reconnect for a new session. |
+| Waiting after asking for a human | Open `/admin` with the separate admin token and join the handoff. AI replies resume when the admin ends it. |
 
 ## Scope and evidence
 
-Orders are read-only fixtures. Eligibility does not execute a refund. The refund-initiation message requires confirmed fixture state; escalation stores demo support intake but does not connect a staffed human agent. English TTS, acoustic endpointing and headset use are the demonstrated baseline.
+Orders are read-only fixtures. Eligibility does not execute a refund. The refund-initiation message requires confirmed fixture state; the included admin console connects an operator to the customer. Staffing, production identity and access control remain deployment responsibilities. English TTS, acoustic endpointing and headset use are the demonstrated baseline.
 
 Saved evidence distinguishes scripted providers, synthetic/fake microphone input and live runs. Historical logs are preserved as history. The cleanup verification is in [docs/cleanup-validation.md](docs/cleanup-validation.md); [limitations](docs/limitations.md) describes deployment gaps. Dependency ranges are declared in `pyproject.toml`, not a complete lockfile; retain actual versions and model identifiers with measured runs.
 
 Stop the Python server with Ctrl+C. `docker compose stop` stops Redis while keeping its persisted data.
+
+## Running-call failures and live measurement
+
+For an explicit local failure demonstration, add `AEGIS_ENABLE_DEMO_FAULTS=true` to `.env` and restart. In `/admin`, open **Local demo failure controls**, paste the customer's displayed session ID, choose a one-shot failure and arm it during the conversation. See [voice-demo.md](docs/voice-demo.md) for the exact scenarios and timing boundaries. Leave this setting false outside demonstrations.
+
+The customer interface shows client end-to-first-audio latency plus endpointing, queue, Whisper, support/Groq and first Piper chunk timings. These are measured values for the selected response, not predicted provider speed. Text-only and failed turns are labeled separately.
+
+```bash
+python scripts/evaluate_live_system.py --live --retrieval --answers
+```
+
+This consumes actual Groq quota and writes a consolidated report under `var/evaluation/live-system/`. No live Groq scores or physical-microphone evidence are bundled with this update. Detailed state transfer, production evaluation/rollout and outage tradeoffs are in [integration and operations](docs/integration-and-operations.md).
+
+**Updating an existing checkout:** rebuild the retrieval index after applying this update because the human-support KB document changed: `aegis-support build-index`. Keep your `.env`, models and Redis data; no reset is required. Existing terminated sessions stay terminated.

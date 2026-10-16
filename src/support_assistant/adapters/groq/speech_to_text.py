@@ -19,7 +19,7 @@ class GroqSpeechToText:
         self.client = client or httpx.AsyncClient(timeout=timeout)
         self.owned = client is None
 
-    async def transcribe(self, pcm):
+    async def transcribe(self, pcm, *, fault=None):
         if not self.key:
             raise SpeechFailure("stt_credentials_missing")
         if not pcm or len(pcm) > 16000 * 2 * 61:
@@ -39,9 +39,18 @@ class GroqSpeechToText:
                 for attempt in range(2):
                     retry_delay = 0.25
                     try:
+                        if fault == "stt_transient" and attempt == 0:
+                            raise httpx.ReadTimeout("injected demo timeout")
                         response = await self.client.post(
                             "https://api.groq.com/openai/v1/audio/transcriptions",
-                            headers={"Authorization": "Bearer " + self.key},
+                            headers={
+                                "Authorization": "Bearer "
+                                + (
+                                    "invalid-demo-key"
+                                    if fault == "stt_auth"
+                                    else self.key
+                                )
+                            },
                             data=data,
                             files={"file": ("utterance.wav", wav, "audio/wav")},
                         )

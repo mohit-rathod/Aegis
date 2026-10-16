@@ -2,6 +2,8 @@ import argparse
 import asyncio
 import hashlib
 import json
+import platform
+import time
 import uuid
 from collections import Counter
 from datetime import datetime, timezone
@@ -65,6 +67,12 @@ async def run(args):
         "created_at": datetime.now(timezone.utc).isoformat(),
         "suites": {},
         "errors": [],
+        "provider": "Groq actual API",
+        "python_version": platform.python_version(),
+        "prompt_hashes": {
+            p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in (ROOT / "src/support_assistant/prompts").glob("*.md")
+        },
     }
     suites = (
         ["routing", "ambiguity", "input", "output", "tools", "cache"]
@@ -74,6 +82,7 @@ async def run(args):
     try:
         await redis.ping()
         for suite in suites:
+            suite_started = time.monotonic()
             rows = []
             if suite in ["routing", "ambiguity"]:
                 for case in cases(
@@ -286,15 +295,29 @@ async def run(args):
                             "unique_messages": 30 if workload == "unique" else 5,
                         }
                     )
+            metrics["elapsed_seconds"] = round(time.monotonic() - suite_started, 3)
+            metrics["provider_errors"] = sum("error_type" in row for row in rows)
             result["suites"][suite] = {
                 "count": len(rows),
                 "metrics": metrics,
                 "rows": rows,
             }
+    except Exception as exc:
+        result["errors"].append(
+            {
+                "stage": suite if "suite" in locals() else "startup",
+                "category": type(exc).__name__,
+            }
+        )
     finally:
-        keys = [k async for k in redis.scan_iter(match=prefix + ":*")]
-        if keys:
-            await redis.delete(*keys)
+        try:
+            keys = [k async for k in redis.scan_iter(match=prefix + ":*")]
+            if keys:
+                await redis.delete(*keys)
+        except Exception as exc:
+            result["errors"].append(
+                {"stage": "cleanup", "category": type(exc).__name__}
+            )
         await redis.aclose()
         await llm.aclose()
     result["dataset_hashes"] = {
@@ -304,6 +327,7 @@ async def run(args):
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n")
     print(f"Saved live evaluation to {args.output}")
+    return result
 
 
 def main():
@@ -323,7 +347,11 @@ def main():
         "--output", type=Path, default=Path("var/evaluation/support-live.json")
     )
     args = p.parse_args()
-    asyncio.run(run(args))
+    result = asyncio.run(run(args))
+    if result["errors"] or any(
+        s["metrics"].get("provider_errors", 0) for s in result["suites"].values()
+    ):
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":

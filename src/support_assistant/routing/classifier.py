@@ -53,6 +53,7 @@ class Classifier:
                     "context": {
                         "last_order_id": session.last_order_id,
                         "pending_intent": session.pending_intent,
+                        "human_resolution_untrusted": session.human_resolution,
                     },
                     "registered_intents": INTENTS,
                 },

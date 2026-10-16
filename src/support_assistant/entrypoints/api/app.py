@@ -34,6 +34,11 @@ async def frontend():
     return FileResponse(WEB / "index.html")
 
 
+@app.get("/admin", include_in_schema=False)
+async def admin_frontend():
+    return FileResponse(WEB / "admin.html")
+
+
 class MessageRequest(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
     turn_id: str = Field(pattern=r"^[A-Za-z0-9_-]{1,100}$")
@@ -89,6 +94,31 @@ async def create_session(identity=Depends(customer)):
     return {"session_id": session.session_id, "state": session.state, "mode": "demo"}
 
 
+@app.get("/sessions/{session_id}")
+async def session_detail(session_id: str, identity=Depends(customer)):
+    try:
+        return (await app.state.runtime.store.get(session_id, identity)).model_dump(
+            mode="json"
+        )
+    except SupportError:
+        raise HTTPException(404, "Session unavailable") from None
+
+
+@app.post("/sessions/{session_id}/end")
+async def end_conversation(session_id: str, identity=Depends(customer)):
+    try:
+        session = await app.state.runtime.service.human.end_conversation(
+            session_id, identity, app.state.runtime.settings.turn_timeout + 5
+        )
+        return {"session_id": session_id, "state": session.state}
+    except SupportError as exc:
+        raise HTTPException(409, exc.code) from None
+    except TimeoutError:
+        raise HTTPException(
+            503, "Closure is waiting for an active operation; retry shortly."
+        ) from None
+
+
 @app.post("/sessions/{session_id}/messages")
 async def message(session_id: str, body: MessageRequest, identity=Depends(customer)):
     if len(session_id) != 32 or not all(c in "0123456789abcdef" for c in session_id):
@@ -123,7 +153,89 @@ async def support_requests():
     ):
         raw = await runtime.redis.get(key)
         if raw:
-            rows.append(json.loads(raw))
+            request = json.loads(raw)
+            if request.get("mode") == "live_human_handoff" and request.get(
+                "status"
+            ) in ["queued", "active"]:
+                rows.append(request)
         if len(rows) >= 20:
             break
     return rows
+
+
+class HumanMessageRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    message_id: str = Field(pattern=r"^[A-Za-z0-9_-]{1,100}$")
+    text: str = Field(min_length=1, max_length=2000)
+
+
+class ResolutionRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    resolution: str = Field(default="", max_length=2000)
+
+
+class FaultRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    kind: str
+
+
+def handoff_error(exc):
+    return HTTPException(
+        404
+        if exc.code in ["support_request_not_available", "session_not_available"]
+        else 409,
+        exc.code,
+    )
+
+
+@app.get("/admin/support-requests/{request_id}", dependencies=[Depends(admin)])
+async def handoff_detail(request_id: str):
+    try:
+        return await app.state.runtime.service.human.detail(request_id)
+    except SupportError as exc:
+        raise handoff_error(exc) from None
+
+
+@app.post("/admin/support-requests/{request_id}/claim", dependencies=[Depends(admin)])
+async def handoff_claim(request_id: str):
+    try:
+        return await app.state.runtime.service.human.claim(request_id)
+    except SupportError as exc:
+        raise handoff_error(exc) from None
+
+
+@app.post(
+    "/admin/support-requests/{request_id}/messages", dependencies=[Depends(admin)]
+)
+async def handoff_message(request_id: str, body: HumanMessageRequest):
+    if not body.text.strip():
+        raise HTTPException(422, "Message cannot be empty")
+    try:
+        return await app.state.runtime.service.human.message(
+            request_id, "human-" + body.message_id, body.text
+        )
+    except SupportError as exc:
+        raise handoff_error(exc) from None
+
+
+@app.post("/admin/support-requests/{request_id}/resolve", dependencies=[Depends(admin)])
+async def handoff_resolve(request_id: str, body: ResolutionRequest):
+    try:
+        return await app.state.runtime.service.human.resolve(
+            request_id, body.resolution
+        )
+    except SupportError as exc:
+        raise handoff_error(exc) from None
+
+
+@app.post("/admin/sessions/{session_id}/fault", dependencies=[Depends(admin)])
+async def arm_fault(session_id: str, body: FaultRequest):
+    runtime = app.state.runtime
+    try:
+        session = await runtime.store.get_internal(session_id)
+        if session.state == "terminated":
+            raise SupportError("session_terminated")
+        await runtime.voice.faults.arm(session_id, body.kind)
+    except SupportError as exc:
+        raise handoff_error(exc) from None
+    return {"armed": body.kind, "expires_seconds": 300, "one_shot": True}

@@ -19,8 +19,8 @@ States are listening, capturing, transcribing, processing, speaking, recovering 
 3. TTS receives the exact finalized answer, after output checks. No unchecked model-token streaming. Tool evidence IDs are displayed as Order system in the UI; KB citations remain visible.
 4. One connection worker serializes business turns. Existing Redis leases also serialize a session across connections/workers. Retrying transcription never creates an extra support turn.
 5. Confirmed speech increments a generation, stops browser playback and cancels synthesis. Late audio is discarded. In-flight business work may complete and commit; interruption does not imply rollback. Its stale response is visible as interrupted and is not spoken. The next business turn waits.
-6. The pending queue holds two jobs. Superseded queued audio is discarded in favor of newer speech. Accepted text jobs process in order, with stale audio suppressed. A full queue produces a retry message.
-7. Existing refund/eligibility reconciliation and exact messages remain authoritative. Successful escalation terminates the session; voice finishes or cancels the closing playback and closes. Interruption cannot reopen it.
+6. The pending queue holds two jobs. All accepted voice and text jobs process FIFO, with stale assistant audio suppressed. A full queue explicitly rejects the new turn with a retry message. Graceful disconnect drains accepted jobs; a process crash still requires durable queue infrastructure.
+7. Existing refund/eligibility reconciliation and exact messages remain authoritative. Successful escalation enters waiting-for-human. Shared history delivers human replies through the same playback path. Admin resolution resumes AI; customer termination closes both sides. Interruption cannot reopen a terminated session.
 
 ## Endpointing and barge-in
 

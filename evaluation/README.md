@@ -14,3 +14,7 @@ Run commands from the project root in the installed virtual environment. Build t
 | `python scripts/benchmark_support.py --sessions 10000 --turns 200 --concurrency 16` | Session storage/coordination measurement. | Redis; scripted providers, not production call capacity. |
 
 `evaluation/runners/grounding.py` and `support.py` contain the actual evaluators. Datasets are development seeds; results are not independent held-out model-quality guarantees. See each command's `--help` for output paths, and `docs/voice-design.md` for latency definitions. Physical microphone testing is a separate browser demonstration. `scripts/run_evaluation.py` remains a compatibility alias for retrieval evaluation.
+
+## Consolidated actual-provider evaluation
+
+`python scripts/evaluate_live_system.py --live --retrieval --answers` writes `support.json`, optional `retrieval.json`, `summary.json` and `REPORT.md` under `var/evaluation/live-system/`. It requires the real Groq key, Redis and (for retrieval) a rebuilt index. Provider failures leave the report incomplete and exit nonzero; do not interpret them as measured semantic quality. Cache mechanics, fake providers and synthetic audio are labeled separately. See `docs/integration-and-operations.md` for held-out-set expansion, SLO proposals and rollout policy. Physical-microphone/end-to-audio evidence must be recorded on the actual browser/provider pipeline.

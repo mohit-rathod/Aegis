@@ -254,11 +254,11 @@ class SupportTests(unittest.IsolatedAsyncioTestCase):
         with self.assertRaisesRegex(SupportError, "turn_id_conflict"):
             await self.ask("Check AEG-1002", "same-turn")
 
-    async def test_escalation_saved_then_chat_terminated(self):
+    async def test_escalation_saved_then_human_waiting(self):
         self.r.llm.route = "escalate_to_human"
         result = await self.ask("I need a person", "escalate-once")
         self.assertEqual(result.answer, ESCALATED)
-        self.assertEqual(result.session_state, "terminated")
+        self.assertEqual(result.session_state, "waiting_for_human")
         self.assertEqual(
             len(
                 [
@@ -283,7 +283,7 @@ class SupportTests(unittest.IsolatedAsyncioTestCase):
             ),
             1,
         )
-        self.assertEqual((await self.ask("Another question")).status, "terminated")
+        self.assertEqual((await self.ask("Another question")).status, "human_message")
 
     async def test_escalation_persistence_failure_never_claims_success(self):
         self.r.llm.route = "escalate_to_human"
@@ -320,6 +320,9 @@ class SupportTests(unittest.IsolatedAsyncioTestCase):
     async def test_other_worker_sees_termination(self):
         self.r.llm.route = "escalate_to_human"
         await self.ask("Please connect a person")
+        await self.r.service.human.end_conversation(
+            self.session.session_id, "customer-a"
+        )
         other = make_service(self.redis, self.prefix, ROOT)
         response = await other.service.handle(
             "customer-a", self.session.session_id, self.turn("Help")

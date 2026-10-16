@@ -35,6 +35,11 @@ class Runtime:
         from support_assistant.voice.resources import VoiceResources
 
         self.voice = VoiceResources(settings)
+        from support_assistant.voice.faults import DemoFaults
+
+        self.voice.faults = DemoFaults(
+            redis, settings.prefix, settings.demo_faults_enabled
+        )
 
     async def aclose(self):
         await self.voice.aclose()

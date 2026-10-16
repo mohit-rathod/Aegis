@@ -137,6 +137,7 @@ async def run(args):
         resources = VoiceResources(settings)
         await resources.stt.aclose()
         resources.stt = ScriptedSTT()
+        resources.mode = "scripted_STT_LLM_real_VAD_Piper"
     else:
         from support_assistant.bootstrap import create_runtime
 

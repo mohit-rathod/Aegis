@@ -12,7 +12,7 @@ flowchart TD
     Guard --> Router["Cached three-intent classifier"]
     Router --> RAG["Product: embedding retrieval"]
     Router --> Order["Order: authorized function calls"]
-    Router --> Human["Human: support intake"]
+    Router --> Human["Human: live handoff"]
     RAG --> Output["Output validation and session commit"]
     Order --> Output
     Human --> Output
@@ -20,7 +20,7 @@ flowchart TD
     Output --> Audio["Voice: Piper and cancellable playback"]
 ```
 
-An input-check failure blocks dispatch. RAG expands matched embedding chunks into their source documents. Tool answers use recorded, authorized evidence; return eligibility is distinct from refund initiation. Escalation persists intake and terminates the session before the response is delivered.
+An input-check failure blocks dispatch. RAG expands matched embedding chunks into their source documents. Tool answers use recorded, authorized evidence; return eligibility is distinct from refund initiation. Escalation persists a handoff and enters `waiting_for_human`. Admin claim enters `human_active`; ending the handoff persists an extractive resolution and resumes `active`. Customer termination closes both sides. Messages in human states go to the operator without AI dispatch.
 
 ## Core files
 
@@ -36,6 +36,10 @@ Paths below are relative to `src/support_assistant/`. Package `__init__.py` file
 | `entrypoints/web/index.html`, `style.css` | Basic responsive text-and-voice support interface. |
 | `entrypoints/web/app.js`, `capture-worklet.js` | Session transport, microphone resampling/framing, playback queue, interruption and client timing. |
 | `application/support_service.py` | Sole guarded business-turn pipeline, session lease/replay, routing, response finalization and persistence. |
+| `application/{human_support,history}.py` | Authorized handoff lifecycle, shared bounded history, admin replies, extractive resolution and customer termination. |
+| `entrypoints/web/{admin.html,admin.js}` | Authenticated operator inbox, first-message summary, bidirectional chat, end handoff and opt-in failure controls. |
+| `voice/faults.py` | Admin-only, expiring, one-shot STT/TTS demonstration failures. |
+| `scripts/evaluate_live_system.py` | Consolidated actual-provider evaluation and incomplete-run reporting. |
 | `application/guarded_dispatcher.py` | Require a matching signed approval before calling a registered handler. |
 | `application/response_service.py` | Verify RAG/tool evidence; render controlled transactional responses and exact required wording. |
 | `application/ports/{llm,embeddings,audio,speech_to_text,text_to_speech}.py` | Typed interfaces for injected providers and channel dependencies. |
@@ -51,7 +55,7 @@ Paths below are relative to `src/support_assistant/`. Package `__init__.py` file
 | `adapters/cache/redis_cache.py` | Bounded classifier cache, request coalescing and hit-rate counters. |
 | `adapters/audio/{silero_vad,codecs}.py` | Per-call VAD state and PCM/WAV conversion. |
 | `adapters/tts/{piper,piper_worker,local_recovery}.py`, `recovery/*.wav` | Killable native synthesis, framed PCM streaming and provider-independent recovery recordings. |
-| `voice/{coordinator,endpointing,audio_buffer,turn_tracker,state,events}.py` | Voice lifecycle, speech boundaries, pre-roll, generation invalidation and turn deduplication. |
+| `voice/{coordinator,endpointing,audio_buffer,turn_tracker,state,events}.py` | Voice lifecycle, speech boundaries, pre-roll, playback generation invalidation, accepted FIFO jobs and explicit turn outcomes. |
 | `voice/{resources,settings,playback_controller}.py` | Speech-provider capacity, model configuration, bounded audio window and cancellation timing. |
 | `observability/logging.py` | Structured operational JSON logs without ordinary customer text, audio or secrets. |
 | `prompts/*.md`, `manifest.json` | Guard, classifier, product and order instructions plus versioned prompt hashes. |
@@ -82,4 +86,4 @@ Paths below are relative to `src/support_assistant/`. Package `__init__.py` file
 - **Per voice connection:** transient PCM/pre-roll, endpoint/VAD state, bounded jobs and playback generation. Interruption cancels obsolete audio, not a committed business operation.
 - **External:** Groq chat and Whisper. Embeddings, VAD and Piper inference run locally after model download.
 
-Defaults are a demo, not a production phone carrier, payment integration, staffed live chat or measured 10,000-call deployment. See [limitations](docs/limitations.md), [support design](docs/support-design.md) and [voice design](docs/voice-design.md).
+Defaults are a demo, not a production phone carrier, payment integration, production staffing or measured 10,000-call deployment. See [limitations](docs/limitations.md), [support design](docs/support-design.md) and [voice design](docs/voice-design.md).

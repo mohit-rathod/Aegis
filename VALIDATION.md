@@ -7,3 +7,7 @@ The earlier decision record is retained unchanged under evidence/archive/baselin
 Current voice/frontend validation is recorded in docs/voice-validation.md, with raw outputs in evidence/runs/voice-validation/. Earlier support regression results remain historical evidence.
 
 The current cleanup regression and packaging checks are recorded in docs/cleanup-validation.md and evidence/runs/cleanup-validation/. Earlier support and voice reports are retained as historical evidence.
+
+## Current handoff and voice update
+
+See `docs/handoff-validation.md` for current checks. Older evidence remains historical; older termination behavior is superseded by live human handoff and AI resumption.

@@ -58,6 +58,36 @@ class STTTests(unittest.IsolatedAsyncioTestCase):
         # Multipart boundaries may vary; both requests contain the same WAV payload.
         self.assertTrue(all(b"\1" * 1024 in body for body in calls))
 
+    async def test_one_request_auth_fault_does_not_change_original_key(self):
+        headers = []
+
+        async def handler(request):
+            headers.append(request.headers["authorization"])
+            return (
+                httpx.Response(401)
+                if "invalid" in headers[-1]
+                else httpx.Response(200, json={"text": "recovered"})
+            )
+
+        adapter = await self.request(handler)
+        with self.assertRaisesRegex(SpeechFailure, "authentication"):
+            await adapter.transcribe(b"\0" * 1024, fault="stt_auth")
+        self.assertEqual(await adapter.transcribe(b"\0" * 1024), "recovered")
+        self.assertEqual(headers, ["Bearer invalid-demo-key", "Bearer dummy"])
+
+    async def test_demo_transient_timeout_retries_with_normal_provider(self):
+        calls = []
+
+        async def handler(request):
+            calls.append(request.headers["authorization"])
+            return httpx.Response(200, json={"text": "recovered"})
+
+        adapter = await self.request(handler)
+        self.assertEqual(
+            await adapter.transcribe(b"\0" * 1024, fault="stt_transient"), "recovered"
+        )
+        self.assertEqual(calls, ["Bearer dummy"])
+
     async def test_stalled_provider_has_total_deadline(self):
         async def handler(request):
             await asyncio.sleep(2)
@@ -124,6 +154,56 @@ class NativeSpeechTests(unittest.IsolatedAsyncioTestCase):
         ]
         self.assertTrue(output)
         self.assertGreater(sum(len(p) for _, p in output), 1000)
+
+    async def test_running_conversation_native_piper_failure_recovers_next_turn(self):
+        from support_assistant.voice.coordinator import VoiceCoordinator
+        from tests.fakes.audio import components
+
+        runtime, resources, transport = components()
+        resources.tts = PiperTTS(Path(os.environ["AEGIS_TEST_PIPER_MODEL"]))
+
+        class OneShot:
+            armed = True
+
+            async def consume(self, sid, kind):
+                active = self.armed and kind == "tts_midstream"
+                if active:
+                    self.armed = False
+                return active
+
+        resources.faults = OneShot()
+        coordinator = VoiceCoordinator(
+            runtime, "customer-a", "s" * 32, transport, resources
+        )
+        transport.coordinator = coordinator
+        coordinator.enabled = True
+        await coordinator.start()
+        try:
+            await coordinator.text("Please read the details", "failure")
+            await asyncio.wait_for(coordinator.queue.join(), 20)
+            self.assertTrue(
+                any(
+                    r["type"] == "audio_stop" and r["reason"] == "tts_failure"
+                    for r in transport.rows
+                )
+            )
+            self.assertTrue(
+                any(
+                    r["type"] == "audio_start" and r["recovery"] for r in transport.rows
+                )
+            )
+            await coordinator.text("Try again", "recovered")
+            await asyncio.wait_for(coordinator.queue.join(), 20)
+            self.assertEqual(len(runtime.service.turns), 2)
+            self.assertEqual(
+                sum(
+                    r["type"] == "turn_result" and r["status"] == "completed"
+                    for r in transport.rows
+                ),
+                2,
+            )
+        finally:
+            await coordinator.aclose()
 
     async def test_cancel_reaps_native_worker(self):
         stream = PiperTTS(Path(os.environ["AEGIS_TEST_PIPER_MODEL"])).stream(

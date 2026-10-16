@@ -66,16 +66,30 @@ class PiperTTS:
         except asyncio.IncompleteReadError:
             raise SpeechFailure("tts_truncated_audio") from None
         finally:
-            if process and process.returncode is None:
+            if process:
+                cleanup = asyncio.create_task(self._reap(process))
                 try:
-                    process.terminate()
+                    await asyncio.shield(cleanup)
+                except asyncio.CancelledError:
+                    # Repeated barge-in must not interrupt native-worker/pipe cleanup.
+                    await cleanup
+                    raise
+
+    @staticmethod
+    async def _reap(process):
+        if process.returncode is None:
+            try:
+                process.terminate()
+            except ProcessLookupError:
+                pass
+        try:
+            # Drain stdout even when the child already exited. Buffered pipe transports
+            # otherwise survive cancellation and leak until the event loop closes.
+            await asyncio.wait_for(process.communicate(), 1)
+        except TimeoutError:
+            if process.returncode is None:
+                try:
+                    process.kill()
                 except ProcessLookupError:
                     pass
-                try:
-                    await asyncio.wait_for(process.wait(), 1)
-                except TimeoutError:
-                    try:
-                        process.kill()
-                    except ProcessLookupError:
-                        pass
-                    await process.wait()
+            await asyncio.wait_for(process.communicate(), 1)

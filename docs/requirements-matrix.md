@@ -10,7 +10,7 @@
 | Output commitments grounded | application/response_service.py, tool evidence vault | forged evidence/refund/eligibility tests |
 | Classifier cache/hit rate | adapters/cache/redis_cache.py | hit/miss/coalescing tests and capacity.json |
 | Exact refund message | safe_responses.py + confirmed tool state | test_refund_exact_message |
-| Escalate and terminate | redis_sessions.py + support_service.py | persistence/replay/termination tests |
+| Human handoff and AI resumption | application/human_support.py + shared history + admin UI | handoff API, browser, voice and termination tests |
 | Terminal traces | observability/logging.py | saved scripted traces.jsonl |
 | Scale design and scaffolding | async API + Redis + bounded workers | support-design.md and capacity runner |
 | Actual 10k production capacity | not established | capacity report explicitly narrows its scope |
@@ -22,3 +22,6 @@
 | Interruptible Piper output | adapters/tts/piper.py + voice/playback_controller.py | native synthesis/cancellation and failure fixtures |
 | Speech/noise discrimination | Silero + voice/endpointing.py | six paced scenarios and VAD fixture replay |
 | Latency reporting | coordinator + browser playback clock | separate server/client estimates, explicit test mode |
+| Accepted-turn preservation | voice/coordinator.py | FIFO, duplicate, disconnect and overflow tests |
+| In-call failure controls | voice/faults.py + admin API/UI | default-disabled authorization tests and native Piper browser recovery |
+| Live evaluation and operations answers | scripts/evaluate_live_system.py + docs/integration-and-operations.md | reproducible runner; live results require credentials |

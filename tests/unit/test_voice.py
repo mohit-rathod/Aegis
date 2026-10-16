@@ -175,7 +175,7 @@ class CoordinatorTests(unittest.IsolatedAsyncioTestCase):
         for _ in range(10):
             await self.coordinator.text("question")
         self.assertLessEqual(self.coordinator.queue.qsize(), 2)
-        self.assertTrue(any(r["type"] == "error" for r in self.transport.rows))
+        self.assertTrue(any(r["type"] == "turn_rejected" for r in self.transport.rows))
 
     async def test_disconnect_finishes_business_without_starting_audio(self):
         self.runtime.service.hold = asyncio.Event()
@@ -187,6 +187,60 @@ class CoordinatorTests(unittest.IsolatedAsyncioTestCase):
         await closing
         self.assertEqual(len(self.runtime.service.turns), 1)
         self.assertEqual(self.resources.tts.calls, 0)
+
+    async def test_all_accepted_turns_survive_newer_input_fifo(self):
+        self.runtime.service.hold = asyncio.Event()
+        await self.coordinator.text("first", "first")
+        await self.runtime.service.started.wait()
+        await self.coordinator.text("second", "second")
+        await self.coordinator.text("third", "third")
+        self.runtime.service.hold.set()
+        await self.coordinator.queue.join()
+        self.assertEqual(
+            [t.text for t in self.runtime.service.turns], ["first", "second", "third"]
+        )
+        outcomes = [r for r in self.transport.rows if r["type"] == "turn_result"]
+        self.assertEqual(len(outcomes), 3)
+        self.assertTrue(all(r["status"] == "completed" for r in outcomes))
+
+    async def test_disconnect_drains_accepted_pending_turns(self):
+        self.runtime.service.hold = asyncio.Event()
+        await self.coordinator.text("first", "first")
+        await self.runtime.service.started.wait()
+        await self.coordinator.text("second", "second")
+        closing = asyncio.create_task(self.coordinator.aclose())
+        await asyncio.sleep(0.01)
+        self.runtime.service.hold.set()
+        await closing
+        self.assertEqual(
+            [t.text for t in self.runtime.service.turns], ["first", "second"]
+        )
+
+    async def test_same_pending_turn_does_not_dispatch_twice(self):
+        self.runtime.service.hold = asyncio.Event()
+        await self.coordinator.text("first", "same")
+        await self.runtime.service.started.wait()
+        await self.coordinator.text("first", "same")
+        self.runtime.service.hold.set()
+        await self.coordinator.queue.join()
+        self.assertEqual(len(self.runtime.service.turns), 1)
+        self.assertTrue(any(r["type"] == "turn_pending" for r in self.transport.rows))
+
+    async def test_latency_contains_real_stage_boundaries(self):
+        await self.coordinator.text("Order details", "timed")
+        await self.coordinator.queue.join()
+        metric = next(r for r in self.transport.rows if r["type"] == "metrics")
+        self.assertEqual(metric["turn_id"], "timed")
+        for field in [
+            "queue_ms",
+            "endpoint_ms",
+            "stt_ms",
+            "agent_ms",
+            "tts_first_chunk_ms",
+            "end_to_audio_server_ms",
+        ]:
+            self.assertGreaterEqual(metric[field], 0)
+        self.assertGreaterEqual(metric["end_to_audio_server_ms"], metric["agent_ms"])
 
     async def test_stale_ack_cannot_ack_current_playback(self):
         playback = self.coordinator.playback

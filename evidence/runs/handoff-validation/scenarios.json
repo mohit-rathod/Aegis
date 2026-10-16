@@ -1,0 +1,5658 @@
+{
+  "mode": "scripted_stt_llm_real_vad_piper",
+  "audio_sink": "paced_virtual_playback",
+  "physical_microphone_tested": false,
+  "scenarios": [
+    {
+      "scenario": "silence",
+      "passed": true,
+      "speech_interruptions": 0,
+      "voice_turns": 0,
+      "recoveries": [],
+      "events": [
+        {
+          "type": "ready",
+          "session_id": "05d2bc4c4a3d403c9295844c3b2530ac",
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "pipeline": "microphone \u2192 Silero VAD \u2192 Groq Whisper \u2192 guarded Groq support \u2192 Piper \u2192 speakers"
+        },
+        {
+          "type": "history",
+          "messages": [],
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "turn_accepted",
+          "turn_id": "voice-7ef82e91d2a04ebfb905d1432479f017",
+          "channel": "text"
+        },
+        {
+          "type": "transcript",
+          "text": "Where is AEG-1001?",
+          "turn_id": "voice-7ef82e91d2a04ebfb905d1432479f017",
+          "channel": "text"
+        },
+        {
+          "type": "state",
+          "state": "processing"
+        },
+        {
+          "type": "session_state",
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "response",
+          "session_id": "05d2bc4c4a3d403c9295844c3b2530ac",
+          "turn_id": "voice-7ef82e91d2a04ebfb905d1432479f017",
+          "status": "answer",
+          "answer": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "intent": "order_status",
+          "citations": [
+            "tool-2e06fb11fbb4499a83c13ae72273342c"
+          ],
+          "session_state": "active",
+          "support_request_id": null,
+          "superseded": false,
+          "timings": {
+            "queue_ms": 0.22,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 6.09,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 6.4
+          }
+        },
+        {
+          "type": "turn_result",
+          "turn_id": "voice-7ef82e91d2a04ebfb905d1432479f017",
+          "status": "completed",
+          "reason": "answer"
+        },
+        {
+          "type": "state",
+          "state": "speaking"
+        },
+        {
+          "type": "audio_start",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "captured_at_ms": null,
+          "recovery": false
+        },
+        {
+          "type": "audio_context",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "turn_id": "voice-7ef82e91d2a04ebfb905d1432479f017",
+          "speaker": "assistant",
+          "timings": {
+            "queue_ms": 0.22,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 6.09,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 6.4
+          }
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-7ef82e91d2a04ebfb905d1432479f017-customer",
+          "sequence": 1,
+          "role": "customer",
+          "text": "Where is AEG-1001?",
+          "created_at": "2026-10-16T15:39:10.310324+00:00",
+          "kind": "message",
+          "turn_id": "voice-7ef82e91d2a04ebfb905d1432479f017"
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-7ef82e91d2a04ebfb905d1432479f017-assistant",
+          "sequence": 2,
+          "role": "assistant",
+          "text": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "created_at": "2026-10-16T15:39:10.310342+00:00",
+          "kind": "message",
+          "turn_id": "voice-7ef82e91d2a04ebfb905d1432479f017"
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 0,
+          "sample_rate": 22050
+        },
+        {
+          "type": "metrics",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "turn_id": "voice-7ef82e91d2a04ebfb905d1432479f017",
+          "speaker": "assistant",
+          "queue_ms": 0.22,
+          "endpoint_ms": 0,
+          "stt_ms": 0.0,
+          "agent_ms": 6.09,
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "end_to_text_server_ms": 6.4,
+          "tts_first_chunk_ms": 1846.03,
+          "end_to_audio_server_ms": 1852.57
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 1,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 2,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 3,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 4,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 5,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 6,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 7,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 8,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 9,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 10,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 11,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 12,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 13,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 14,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 15,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 16,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 17,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 18,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 19,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 20,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 21,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 22,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 23,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 24,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 25,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 26,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 27,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 28,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 29,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 30,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 31,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 32,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 33,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 34,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 35,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 36,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 37,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 38,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 39,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 40,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 41,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 42,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 43,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 44,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 45,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 46,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 47,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 48,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 49,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 50,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 51,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 52,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 53,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 54,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 55,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 56,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 57,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 58,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 59,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 60,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 61,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 62,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 63,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 64,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 65,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 66,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 67,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 68,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 69,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 70,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 71,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 72,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 73,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 74,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 75,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 76,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 77,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 78,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 79,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 80,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 81,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 82,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 83,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 84,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 85,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 86,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 87,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 88,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 89,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 90,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 91,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 92,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 93,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 94,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 95,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 96,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 97,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 98,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 99,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 100,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 101,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 102,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 103,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 104,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 105,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 106,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 107,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 108,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 109,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 110,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 111,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 112,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 113,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 114,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 115,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 116,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 117,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 118,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 119,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 120,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 121,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 122,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 123,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 124,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 125,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 126,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 127,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 128,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 129,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 130,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 131,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 132,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 133,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 134,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 135,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 136,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 137,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 138,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 139,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 140,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 141,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 142,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 143,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 144,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 145,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 146,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 147,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 148,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 149,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 150,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 151,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 152,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 153,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 154,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 155,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 156,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 157,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 158,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 159,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 160,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 161,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 162,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 163,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 164,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 165,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 166,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 167,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 168,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 169,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 170,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 171,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 172,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 173,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 174,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 175,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 176,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 177,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 178,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 179,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 180,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 181,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 182,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 183,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 184,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 185,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 186,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 187,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 188,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 189,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 190,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 191,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 192,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 193,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 194,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 195,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 196,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 197,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 198,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 199,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 200,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 201,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 202,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 203,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 204,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 205,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 206,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 207,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 208,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 209,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 210,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 211,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89",
+          "sequence": 212,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio_end",
+          "playback_id": "5eafa7eacacb4a80828adff6db69ed89"
+        },
+        {
+          "type": "state",
+          "state": "listening"
+        }
+      ]
+    },
+    {
+      "scenario": "noise",
+      "passed": true,
+      "speech_interruptions": 0,
+      "voice_turns": 0,
+      "recoveries": [],
+      "events": [
+        {
+          "type": "ready",
+          "session_id": "9de78ccdc5c6456792fc09e7328dbb15",
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "pipeline": "microphone \u2192 Silero VAD \u2192 Groq Whisper \u2192 guarded Groq support \u2192 Piper \u2192 speakers"
+        },
+        {
+          "type": "history",
+          "messages": [],
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "turn_accepted",
+          "turn_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904",
+          "channel": "text"
+        },
+        {
+          "type": "transcript",
+          "text": "Where is AEG-1001?",
+          "turn_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904",
+          "channel": "text"
+        },
+        {
+          "type": "state",
+          "state": "processing"
+        },
+        {
+          "type": "session_state",
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "response",
+          "session_id": "9de78ccdc5c6456792fc09e7328dbb15",
+          "turn_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904",
+          "status": "answer",
+          "answer": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "intent": "order_status",
+          "citations": [
+            "tool-c17ac85656904eccb4776ebb87cf128f"
+          ],
+          "session_state": "active",
+          "support_request_id": null,
+          "superseded": false,
+          "timings": {
+            "queue_ms": 0.11,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 2.17,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 2.33
+          }
+        },
+        {
+          "type": "turn_result",
+          "turn_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904",
+          "status": "completed",
+          "reason": "answer"
+        },
+        {
+          "type": "state",
+          "state": "speaking"
+        },
+        {
+          "type": "audio_start",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "captured_at_ms": null,
+          "recovery": false
+        },
+        {
+          "type": "audio_context",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "turn_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904",
+          "speaker": "assistant",
+          "timings": {
+            "queue_ms": 0.11,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 2.17,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 2.33
+          }
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904-customer",
+          "sequence": 1,
+          "role": "customer",
+          "text": "Where is AEG-1001?",
+          "created_at": "2026-10-16T15:39:22.018229+00:00",
+          "kind": "message",
+          "turn_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904"
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904-assistant",
+          "sequence": 2,
+          "role": "assistant",
+          "text": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "created_at": "2026-10-16T15:39:22.018244+00:00",
+          "kind": "message",
+          "turn_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904"
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 0,
+          "sample_rate": 22050
+        },
+        {
+          "type": "metrics",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "turn_id": "voice-c97d363a331b4ee5ab4dd626a6d2e904",
+          "speaker": "assistant",
+          "queue_ms": 0.11,
+          "endpoint_ms": 0,
+          "stt_ms": 0.0,
+          "agent_ms": 2.17,
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "end_to_text_server_ms": 2.33,
+          "tts_first_chunk_ms": 1531.57,
+          "end_to_audio_server_ms": 1534.34
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 1,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 2,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 3,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 4,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 5,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 6,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 7,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 8,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 9,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 10,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 11,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 12,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 13,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 14,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 15,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 16,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 17,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 18,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 19,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 20,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 21,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 22,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 23,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 24,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 25,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 26,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 27,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 28,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 29,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 30,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 31,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 32,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 33,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 34,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 35,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 36,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 37,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 38,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 39,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 40,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 41,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 42,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 43,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 44,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 45,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 46,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 47,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 48,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 49,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 50,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 51,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 52,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 53,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 54,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 55,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 56,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 57,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 58,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 59,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 60,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 61,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 62,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 63,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 64,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 65,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 66,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 67,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 68,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 69,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 70,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 71,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 72,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 73,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 74,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 75,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 76,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 77,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 78,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 79,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 80,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 81,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 82,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 83,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 84,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 85,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 86,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 87,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 88,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 89,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 90,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 91,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 92,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 93,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 94,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 95,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 96,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 97,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 98,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 99,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 100,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 101,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 102,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 103,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 104,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 105,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 106,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 107,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 108,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 109,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 110,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 111,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 112,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 113,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 114,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 115,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 116,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 117,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 118,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 119,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 120,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 121,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 122,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 123,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 124,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 125,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 126,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 127,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 128,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 129,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 130,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 131,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 132,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 133,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 134,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 135,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 136,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 137,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 138,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 139,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 140,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 141,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 142,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 143,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 144,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 145,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 146,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 147,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 148,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 149,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 150,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 151,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 152,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 153,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 154,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 155,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 156,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 157,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 158,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 159,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 160,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 161,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 162,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 163,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 164,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 165,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 166,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 167,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 168,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 169,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 170,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 171,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 172,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 173,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 174,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 175,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 176,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 177,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 178,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 179,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 180,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 181,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 182,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 183,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 184,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 185,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 186,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 187,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 188,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 189,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 190,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 191,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 192,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 193,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 194,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 195,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 196,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 197,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 198,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 199,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 200,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 201,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 202,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 203,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 204,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 205,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 206,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 207,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 208,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46",
+          "sequence": 209,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio_end",
+          "playback_id": "ecaa18689f7d4a08981c2df8f32d5c46"
+        },
+        {
+          "type": "state",
+          "state": "listening"
+        }
+      ]
+    },
+    {
+      "scenario": "interruption",
+      "passed": true,
+      "speech_interruptions": 1,
+      "voice_turns": 1,
+      "recoveries": [],
+      "events": [
+        {
+          "type": "ready",
+          "session_id": "f7951e21a9c140b99cf192a2cc0dc613",
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "pipeline": "microphone \u2192 Silero VAD \u2192 Groq Whisper \u2192 guarded Groq support \u2192 Piper \u2192 speakers"
+        },
+        {
+          "type": "history",
+          "messages": [],
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "turn_accepted",
+          "turn_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d",
+          "channel": "text"
+        },
+        {
+          "type": "transcript",
+          "text": "Where is AEG-1001?",
+          "turn_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d",
+          "channel": "text"
+        },
+        {
+          "type": "state",
+          "state": "processing"
+        },
+        {
+          "type": "session_state",
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "response",
+          "session_id": "f7951e21a9c140b99cf192a2cc0dc613",
+          "turn_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d",
+          "status": "answer",
+          "answer": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "intent": "order_status",
+          "citations": [
+            "tool-56d20a9a0df14b57a8e8d146385d4801"
+          ],
+          "session_state": "active",
+          "support_request_id": null,
+          "superseded": false,
+          "timings": {
+            "queue_ms": 0.12,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 2.21,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 2.39
+          }
+        },
+        {
+          "type": "turn_result",
+          "turn_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d",
+          "status": "completed",
+          "reason": "answer"
+        },
+        {
+          "type": "state",
+          "state": "speaking"
+        },
+        {
+          "type": "audio_start",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "captured_at_ms": null,
+          "recovery": false
+        },
+        {
+          "type": "audio_context",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "turn_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d",
+          "speaker": "assistant",
+          "timings": {
+            "queue_ms": 0.12,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 2.21,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 2.39
+          }
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d-customer",
+          "sequence": 1,
+          "role": "customer",
+          "text": "Where is AEG-1001?",
+          "created_at": "2026-10-16T15:39:33.260258+00:00",
+          "kind": "message",
+          "turn_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d"
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d-assistant",
+          "sequence": 2,
+          "role": "assistant",
+          "text": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "created_at": "2026-10-16T15:39:33.260274+00:00",
+          "kind": "message",
+          "turn_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d"
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 0,
+          "sample_rate": 22050
+        },
+        {
+          "type": "metrics",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "turn_id": "voice-9f1297471f3b477c9ebcd94bc4900f5d",
+          "speaker": "assistant",
+          "queue_ms": 0.12,
+          "endpoint_ms": 0,
+          "stt_ms": 0.0,
+          "agent_ms": 2.21,
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "end_to_text_server_ms": 2.39,
+          "tts_first_chunk_ms": 1661.14,
+          "end_to_audio_server_ms": 1663.64
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 1,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 2,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 3,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 4,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 5,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 6,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 7,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 8,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 9,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 10,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 11,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 12,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "sequence": 13,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio_stop",
+          "playback_id": "21262f4de10b45159c5b4d3e90356ed8",
+          "reason": "confirmed_speech"
+        },
+        {
+          "type": "state",
+          "state": "capturing"
+        },
+        {
+          "type": "state",
+          "state": "listening"
+        },
+        {
+          "type": "turn_accepted",
+          "turn_id": "voice-a5288282f807457b803f70641ecce861",
+          "channel": "voice"
+        },
+        {
+          "type": "state",
+          "state": "transcribing"
+        },
+        {
+          "type": "transcript",
+          "text": "Wait, wrong order.",
+          "turn_id": "voice-a5288282f807457b803f70641ecce861",
+          "channel": "voice"
+        },
+        {
+          "type": "state",
+          "state": "processing"
+        },
+        {
+          "type": "response",
+          "session_id": "f7951e21a9c140b99cf192a2cc0dc613",
+          "turn_id": "voice-a5288282f807457b803f70641ecce861",
+          "status": "clarify",
+          "answer": "Please provide the Aegis order reference you want me to check.",
+          "intent": "order_status",
+          "citations": [],
+          "session_state": "awaiting_clarification",
+          "support_request_id": null,
+          "superseded": false,
+          "timings": {
+            "queue_ms": 0.27,
+            "endpoint_ms": 795.74,
+            "stt_ms": 0.03,
+            "agent_ms": 2.5,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 798.6
+          }
+        },
+        {
+          "type": "turn_result",
+          "turn_id": "voice-a5288282f807457b803f70641ecce861",
+          "status": "completed",
+          "reason": "clarify"
+        },
+        {
+          "type": "state",
+          "state": "speaking"
+        },
+        {
+          "type": "audio_start",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "captured_at_ms": 4678348.337179,
+          "recovery": false
+        },
+        {
+          "type": "audio_context",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "turn_id": "voice-a5288282f807457b803f70641ecce861",
+          "speaker": "assistant",
+          "timings": {
+            "queue_ms": 0.27,
+            "endpoint_ms": 795.74,
+            "stt_ms": 0.03,
+            "agent_ms": 2.5,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 798.6
+          }
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-a5288282f807457b803f70641ecce861-customer",
+          "sequence": 3,
+          "role": "customer",
+          "text": "Wait, wrong order.",
+          "created_at": "2026-10-16T15:39:37.020233+00:00",
+          "kind": "message",
+          "turn_id": "voice-a5288282f807457b803f70641ecce861"
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-a5288282f807457b803f70641ecce861-assistant",
+          "sequence": 4,
+          "role": "assistant",
+          "text": "Please provide the Aegis order reference you want me to check.",
+          "created_at": "2026-10-16T15:39:37.020245+00:00",
+          "kind": "message",
+          "turn_id": "voice-a5288282f807457b803f70641ecce861"
+        },
+        {
+          "type": "session_state",
+          "state": "awaiting_clarification",
+          "support_request_id": null
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 0,
+          "sample_rate": 22050
+        },
+        {
+          "type": "metrics",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "turn_id": "voice-a5288282f807457b803f70641ecce861",
+          "speaker": "assistant",
+          "queue_ms": 0.27,
+          "endpoint_ms": 795.74,
+          "stt_ms": 0.03,
+          "agent_ms": 2.5,
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "end_to_text_server_ms": 798.6,
+          "tts_first_chunk_ms": 1574.53,
+          "end_to_audio_server_ms": 2373.27
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 1,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 2,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 3,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 4,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 5,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 6,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 7,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 8,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 9,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 10,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 11,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 12,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 13,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 14,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 15,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 16,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 17,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 18,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 19,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 20,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 21,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 22,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 23,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 24,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 25,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 26,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 27,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 28,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 29,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 30,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 31,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 32,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 33,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 34,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 35,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 36,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 37,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 38,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 39,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 40,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 41,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 42,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 43,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 44,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 45,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 46,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 47,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 48,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 49,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 50,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 51,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 52,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 53,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 54,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 55,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 56,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 57,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 58,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 59,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 60,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 61,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 62,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 63,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 64,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 65,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 66,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 67,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 68,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2",
+          "sequence": 69,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio_end",
+          "playback_id": "785f8a2939d24089b7a47ce88a02eea2"
+        },
+        {
+          "type": "state",
+          "state": "listening"
+        }
+      ]
+    },
+    {
+      "scenario": "false_start_then_interruption",
+      "passed": true,
+      "speech_interruptions": 1,
+      "voice_turns": 1,
+      "recoveries": [],
+      "events": [
+        {
+          "type": "ready",
+          "session_id": "89ded6836172440da48834a14b41abcb",
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "pipeline": "microphone \u2192 Silero VAD \u2192 Groq Whisper \u2192 guarded Groq support \u2192 Piper \u2192 speakers"
+        },
+        {
+          "type": "history",
+          "messages": [],
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "turn_accepted",
+          "turn_id": "voice-707393e86d4c41f394546023d883e798",
+          "channel": "text"
+        },
+        {
+          "type": "transcript",
+          "text": "Where is AEG-1001?",
+          "turn_id": "voice-707393e86d4c41f394546023d883e798",
+          "channel": "text"
+        },
+        {
+          "type": "state",
+          "state": "processing"
+        },
+        {
+          "type": "session_state",
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "response",
+          "session_id": "89ded6836172440da48834a14b41abcb",
+          "turn_id": "voice-707393e86d4c41f394546023d883e798",
+          "status": "answer",
+          "answer": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "intent": "order_status",
+          "citations": [
+            "tool-821cb9840cfb44a4980c8d20bf9f9564"
+          ],
+          "session_state": "active",
+          "support_request_id": null,
+          "superseded": false,
+          "timings": {
+            "queue_ms": 0.12,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 2.16,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 2.35
+          }
+        },
+        {
+          "type": "turn_result",
+          "turn_id": "voice-707393e86d4c41f394546023d883e798",
+          "status": "completed",
+          "reason": "answer"
+        },
+        {
+          "type": "state",
+          "state": "speaking"
+        },
+        {
+          "type": "audio_start",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "captured_at_ms": null,
+          "recovery": false
+        },
+        {
+          "type": "audio_context",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "turn_id": "voice-707393e86d4c41f394546023d883e798",
+          "speaker": "assistant",
+          "timings": {
+            "queue_ms": 0.12,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 2.16,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 2.35
+          }
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-707393e86d4c41f394546023d883e798-customer",
+          "sequence": 1,
+          "role": "customer",
+          "text": "Where is AEG-1001?",
+          "created_at": "2026-10-16T15:39:41.827261+00:00",
+          "kind": "message",
+          "turn_id": "voice-707393e86d4c41f394546023d883e798"
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-707393e86d4c41f394546023d883e798-assistant",
+          "sequence": 2,
+          "role": "assistant",
+          "text": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "created_at": "2026-10-16T15:39:41.827276+00:00",
+          "kind": "message",
+          "turn_id": "voice-707393e86d4c41f394546023d883e798"
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 0,
+          "sample_rate": 22050
+        },
+        {
+          "type": "metrics",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "turn_id": "voice-707393e86d4c41f394546023d883e798",
+          "speaker": "assistant",
+          "queue_ms": 0.12,
+          "endpoint_ms": 0,
+          "stt_ms": 0.0,
+          "agent_ms": 2.16,
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "end_to_text_server_ms": 2.35,
+          "tts_first_chunk_ms": 1453.64,
+          "end_to_audio_server_ms": 1456.11
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 1,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 2,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 3,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 4,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 5,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 6,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 7,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 8,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 9,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 10,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 11,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 12,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 13,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 14,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 15,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 16,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 17,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 18,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 19,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 20,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 21,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 22,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 23,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 24,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "sequence": 25,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio_stop",
+          "playback_id": "952aa8abb10e4b7a80f5714a7a0a3931",
+          "reason": "confirmed_speech"
+        },
+        {
+          "type": "state",
+          "state": "capturing"
+        },
+        {
+          "type": "state",
+          "state": "listening"
+        },
+        {
+          "type": "turn_accepted",
+          "turn_id": "voice-4934e53294274aeba0375e23bf91fab4",
+          "channel": "voice"
+        },
+        {
+          "type": "state",
+          "state": "transcribing"
+        },
+        {
+          "type": "transcript",
+          "text": "Wait, wrong order.",
+          "turn_id": "voice-4934e53294274aeba0375e23bf91fab4",
+          "channel": "voice"
+        },
+        {
+          "type": "state",
+          "state": "processing"
+        },
+        {
+          "type": "response",
+          "session_id": "89ded6836172440da48834a14b41abcb",
+          "turn_id": "voice-4934e53294274aeba0375e23bf91fab4",
+          "status": "clarify",
+          "answer": "Please provide the Aegis order reference you want me to check.",
+          "intent": "order_status",
+          "citations": [],
+          "session_state": "awaiting_clarification",
+          "support_request_id": null,
+          "superseded": false,
+          "timings": {
+            "queue_ms": 0.18,
+            "endpoint_ms": 792.45,
+            "stt_ms": 0.02,
+            "agent_ms": 2.14,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 794.86
+          }
+        },
+        {
+          "type": "turn_result",
+          "turn_id": "voice-4934e53294274aeba0375e23bf91fab4",
+          "status": "completed",
+          "reason": "clarify"
+        },
+        {
+          "type": "state",
+          "state": "speaking"
+        },
+        {
+          "type": "audio_start",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "captured_at_ms": 4687271.258970001,
+          "recovery": false
+        },
+        {
+          "type": "audio_context",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "turn_id": "voice-4934e53294274aeba0375e23bf91fab4",
+          "speaker": "assistant",
+          "timings": {
+            "queue_ms": 0.18,
+            "endpoint_ms": 792.45,
+            "stt_ms": 0.02,
+            "agent_ms": 2.14,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 794.86
+          }
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-4934e53294274aeba0375e23bf91fab4-customer",
+          "sequence": 3,
+          "role": "customer",
+          "text": "Wait, wrong order.",
+          "created_at": "2026-10-16T15:39:45.939666+00:00",
+          "kind": "message",
+          "turn_id": "voice-4934e53294274aeba0375e23bf91fab4"
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-4934e53294274aeba0375e23bf91fab4-assistant",
+          "sequence": 4,
+          "role": "assistant",
+          "text": "Please provide the Aegis order reference you want me to check.",
+          "created_at": "2026-10-16T15:39:45.939678+00:00",
+          "kind": "message",
+          "turn_id": "voice-4934e53294274aeba0375e23bf91fab4"
+        },
+        {
+          "type": "session_state",
+          "state": "awaiting_clarification",
+          "support_request_id": null
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 0,
+          "sample_rate": 22050
+        },
+        {
+          "type": "metrics",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "turn_id": "voice-4934e53294274aeba0375e23bf91fab4",
+          "speaker": "assistant",
+          "queue_ms": 0.18,
+          "endpoint_ms": 792.45,
+          "stt_ms": 0.02,
+          "agent_ms": 2.14,
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "end_to_text_server_ms": 794.86,
+          "tts_first_chunk_ms": 1452.61,
+          "end_to_audio_server_ms": 2247.6
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 1,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 2,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 3,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 4,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 5,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 6,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 7,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 8,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 9,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 10,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 11,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 12,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 13,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 14,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 15,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 16,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 17,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 18,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 19,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 20,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 21,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 22,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 23,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 24,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 25,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 26,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 27,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 28,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 29,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 30,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 31,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 32,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 33,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 34,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 35,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 36,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 37,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 38,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 39,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 40,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 41,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 42,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 43,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 44,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 45,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 46,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 47,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 48,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 49,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 50,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 51,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 52,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 53,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 54,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 55,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 56,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 57,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 58,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 59,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 60,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 61,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 62,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 63,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 64,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 65,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 66,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 67,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 68,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe",
+          "sequence": 69,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio_end",
+          "playback_id": "d8c3cc29143a43dea59794d889f280fe"
+        },
+        {
+          "type": "state",
+          "state": "listening"
+        }
+      ]
+    },
+    {
+      "scenario": "stt_failure",
+      "passed": true,
+      "speech_interruptions": 0,
+      "voice_turns": 0,
+      "recoveries": [
+        "stt"
+      ],
+      "events": [
+        {
+          "type": "ready",
+          "session_id": "781bc25c1670470aa947946dc5aad81e",
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "pipeline": "microphone \u2192 Silero VAD \u2192 Groq Whisper \u2192 guarded Groq support \u2192 Piper \u2192 speakers"
+        },
+        {
+          "type": "history",
+          "messages": [],
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "session_state",
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "state",
+          "state": "capturing"
+        },
+        {
+          "type": "turn_accepted",
+          "turn_id": "voice-704eab306acc49e4ad021a2444af8ddf",
+          "channel": "voice"
+        },
+        {
+          "type": "state",
+          "state": "transcribing"
+        },
+        {
+          "type": "turn_result",
+          "turn_id": "voice-704eab306acc49e4ad021a2444af8ddf",
+          "status": "failed",
+          "reason": "transcription_unavailable"
+        },
+        {
+          "type": "state",
+          "state": "recovering"
+        },
+        {
+          "type": "recovery",
+          "category": "stt",
+          "message": "I could not hear that clearly. Please try again, or type your message."
+        },
+        {
+          "type": "audio_start",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "captured_at_ms": null,
+          "recovery": true
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 0,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 1,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 2,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 3,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 4,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 5,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 6,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 7,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 8,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 9,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 10,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 11,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 12,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 13,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 14,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 15,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 16,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 17,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 18,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 19,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 20,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 21,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 22,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 23,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 24,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 25,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 26,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 27,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 28,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 29,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 30,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 31,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 32,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 33,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 34,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 35,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 36,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 37,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 38,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 39,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 40,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 41,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 42,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 43,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 44,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 45,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 46,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 47,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 48,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 49,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 50,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 51,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 52,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 53,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 54,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 55,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 56,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 57,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 58,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 59,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 60,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 61,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 62,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 63,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 64,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 65,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 66,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 67,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 68,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 69,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 70,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 71,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 72,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 73,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 74,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 75,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 76,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 77,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 78,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 79,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 80,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 81,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 82,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 83,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 84,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 85,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae",
+          "sequence": 86,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio_end",
+          "playback_id": "6dc72b44ed854e95bf3a7854646df2ae"
+        },
+        {
+          "type": "state",
+          "state": "listening"
+        }
+      ]
+    },
+    {
+      "scenario": "tts_failure",
+      "passed": true,
+      "speech_interruptions": 0,
+      "voice_turns": 0,
+      "recoveries": [
+        "tts"
+      ],
+      "events": [
+        {
+          "type": "ready",
+          "session_id": "c7d8f90356e4411f8dc44d8c39c1c24b",
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "pipeline": "microphone \u2192 Silero VAD \u2192 Groq Whisper \u2192 guarded Groq support \u2192 Piper \u2192 speakers"
+        },
+        {
+          "type": "history",
+          "messages": [],
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "turn_accepted",
+          "turn_id": "voice-84368f156bdb4516815ee04388544f74",
+          "channel": "text"
+        },
+        {
+          "type": "transcript",
+          "text": "Where is AEG-1001?",
+          "turn_id": "voice-84368f156bdb4516815ee04388544f74",
+          "channel": "text"
+        },
+        {
+          "type": "state",
+          "state": "processing"
+        },
+        {
+          "type": "session_state",
+          "state": "active",
+          "support_request_id": null
+        },
+        {
+          "type": "response",
+          "session_id": "c7d8f90356e4411f8dc44d8c39c1c24b",
+          "turn_id": "voice-84368f156bdb4516815ee04388544f74",
+          "status": "answer",
+          "answer": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "intent": "order_status",
+          "citations": [
+            "tool-ef7721df34c947a4837e976ce0f0523d"
+          ],
+          "session_state": "active",
+          "support_request_id": null,
+          "superseded": false,
+          "timings": {
+            "queue_ms": 0.13,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 2.71,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 2.88
+          }
+        },
+        {
+          "type": "turn_result",
+          "turn_id": "voice-84368f156bdb4516815ee04388544f74",
+          "status": "completed",
+          "reason": "answer"
+        },
+        {
+          "type": "state",
+          "state": "speaking"
+        },
+        {
+          "type": "audio_start",
+          "playback_id": "21a71b93c41349bb9acc1de565321031",
+          "captured_at_ms": null,
+          "recovery": false
+        },
+        {
+          "type": "audio_context",
+          "playback_id": "21a71b93c41349bb9acc1de565321031",
+          "turn_id": "voice-84368f156bdb4516815ee04388544f74",
+          "speaker": "assistant",
+          "timings": {
+            "queue_ms": 0.13,
+            "endpoint_ms": 0,
+            "stt_ms": 0.0,
+            "agent_ms": 2.71,
+            "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+            "end_to_text_server_ms": 2.88
+          }
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-84368f156bdb4516815ee04388544f74-customer",
+          "sequence": 1,
+          "role": "customer",
+          "text": "Where is AEG-1001?",
+          "created_at": "2026-10-16T15:39:56.713815+00:00",
+          "kind": "message",
+          "turn_id": "voice-84368f156bdb4516815ee04388544f74"
+        },
+        {
+          "type": "chat_event",
+          "message_id": "voice-84368f156bdb4516815ee04388544f74-assistant",
+          "sequence": 2,
+          "role": "assistant",
+          "text": "Order AEG-1001 status: in_transit.\nEstimated delivery: 2026-10-20. This is an estimate, not a guarantee.",
+          "created_at": "2026-10-16T15:39:56.713916+00:00",
+          "kind": "message",
+          "turn_id": "voice-84368f156bdb4516815ee04388544f74"
+        },
+        {
+          "type": "audio",
+          "playback_id": "21a71b93c41349bb9acc1de565321031",
+          "sequence": 0,
+          "sample_rate": 22050
+        },
+        {
+          "type": "metrics",
+          "playback_id": "21a71b93c41349bb9acc1de565321031",
+          "turn_id": "voice-84368f156bdb4516815ee04388544f74",
+          "speaker": "assistant",
+          "queue_ms": 0.13,
+          "endpoint_ms": 0,
+          "stt_ms": 0.0,
+          "agent_ms": 2.71,
+          "provider_mode": "scripted_STT_LLM_real_VAD_Piper",
+          "end_to_text_server_ms": 2.88,
+          "tts_first_chunk_ms": 1517.97,
+          "end_to_audio_server_ms": 1521.02
+        },
+        {
+          "type": "audio_stop",
+          "playback_id": "21a71b93c41349bb9acc1de565321031",
+          "reason": "tts_failure"
+        },
+        {
+          "type": "state",
+          "state": "recovering"
+        },
+        {
+          "type": "recovery",
+          "category": "tts",
+          "message": "Audio is temporarily unavailable. Please read the response on screen."
+        },
+        {
+          "type": "audio_start",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "captured_at_ms": null,
+          "recovery": true
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 0,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 1,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 2,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 3,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 4,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 5,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 6,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 7,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 8,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 9,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 10,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 11,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 12,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 13,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 14,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 15,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 16,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 17,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 18,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 19,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 20,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 21,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 22,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 23,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 24,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 25,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 26,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 27,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 28,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 29,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 30,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 31,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 32,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 33,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 34,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 35,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 36,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 37,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 38,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 39,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 40,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 41,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 42,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 43,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 44,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 45,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 46,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 47,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 48,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 49,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 50,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 51,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 52,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 53,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 54,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 55,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 56,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 57,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 58,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 59,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 60,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 61,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 62,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 63,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 64,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 65,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 66,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 67,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 68,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 69,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 70,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 71,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 72,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 73,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 74,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 75,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 76,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 77,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 78,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 79,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 80,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8",
+          "sequence": 81,
+          "sample_rate": 22050
+        },
+        {
+          "type": "audio_end",
+          "playback_id": "ea5b7e6dd9d347408ee746c0206d59e8"
+        },
+        {
+          "type": "state",
+          "state": "listening"
+        },
+        {
+          "type": "state",
+          "state": "listening"
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "dataset_id": "aegis-support-kb-v1",
   "company": "Aegis",
   "fictional": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "effective_date": "2026-10-16",
   "language": "en-IN",
   "scope": "Fictional direct-store home air purifier support; not real Aegis company policy",
@@ -125,8 +125,8 @@
       "path": "support/human-escalation.md",
       "title": "Human support and handoff",
       "category": "support",
-      "version": "1.1.0",
-      "sha256": "0186dd7359ffc43ebeadc2a199a226311bfaf2aedfccf6b13d7c07649ad8ee86"
+      "version": "1.2.0",
+      "sha256": "ebe101f13fd7eb67c19fdcb007092ab78cff1430aceb39a8f422074d035e1284"
     }
   ]
 }

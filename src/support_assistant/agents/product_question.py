@@ -52,7 +52,11 @@ class ProductQuestionAgent:
         )
         if not hits:
             return HandlerResult("abstain")
-        draft = await self.answerer.draft(approved.turn.text, hits)
+        draft = await self.answerer.draft(
+            approved.turn.text,
+            hits,
+            {"human_resolution": approved.session.human_resolution},
+        )
         if draft.status != "answer":
             return HandlerResult(draft.status)
         return HandlerResult("product", hits=tuple(hits), draft=draft)

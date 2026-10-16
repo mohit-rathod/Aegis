@@ -102,7 +102,11 @@ class ChannelTests(unittest.TestCase):
             "/sessions/" + "a" * 32 + "/channel"
         ) as socket:
             socket.send_json({"token": "demo-a"})
-            socket.receive_json()
+            while socket.receive_json()["type"] != "history":
+                pass
             socket.send_bytes(b"bad")
-            self.assertEqual(socket.receive_json()["type"], "error")
+            while True:
+                packet = socket.receive_json()
+                if packet["type"] == "error":
+                    break
         self.assertEqual(self.runtime.service.turns, [])

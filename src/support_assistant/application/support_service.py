@@ -3,6 +3,8 @@ import time
 import uuid
 from datetime import datetime, timezone
 
+from support_assistant.application.history import handoff_summary
+from support_assistant.application.human_support import HumanSupport
 from support_assistant.application.ports.llm import JsonLLM
 from support_assistant.domain.conversation import SupportError, SupportResponse
 from support_assistant.domain.errors import ProviderError
@@ -41,6 +43,7 @@ class SupportService:
         self.turn_timeout = turn_timeout
         self.max_active = max_active
         self.active = 0
+        self.human = HumanSupport(store)
 
     async def handle(self, customer_id, session_id, turn):
         started = time.monotonic()
@@ -154,12 +157,19 @@ class SupportService:
                 )
                 await self.store.commit(session, turn, response, token)
                 return response
+            if session.state in ["waiting_for_human", "human_active"]:
+                return await self.human.receive(
+                    session.model_copy(update={"version": session.version + 1}),
+                    turn,
+                    token,
+                )
             check_start = time.monotonic()
             decision = await self.input_guard.check(
                 turn.text,
                 {
                     "last_order_id": session.last_order_id,
                     "pending_intent": session.pending_intent,
+                    "human_resolution_untrusted": session.human_resolution,
                 },
             )
             event(
@@ -221,7 +231,10 @@ class SupportService:
                     }
                 )
             elif status == "escalated":
-                request_id = "SUP-" + uuid.uuid5(uuid.NAMESPACE_URL, sid).hex[:16]
+                request_id = (
+                    "SUP-"
+                    + uuid.uuid5(uuid.NAMESPACE_URL, sid + ":" + turn.turn_id).hex[:16]
+                )
                 request = {
                     "request_id": request_id,
                     "session_id": sid,
@@ -230,11 +243,15 @@ class SupportService:
                     "verified_order_id": result.data["verified_order_id"],
                     "created_at": datetime.now(timezone.utc).isoformat(),
                     "status": "queued",
-                    "mode": "demo_support_intake",
+                    "mode": "live_human_handoff",
+                    "summary": handoff_summary(
+                        session, result.data["customer_statement"]
+                    ),
+                    "history_start_sequence": session.message_sequence + 1,
                 }
                 next_session = next_session.model_copy(
                     update={
-                        "state": "terminated",
+                        "state": "waiting_for_human",
                         "pending_intent": None,
                         "support_request_id": request_id,
                     }

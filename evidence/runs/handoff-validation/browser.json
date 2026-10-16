@@ -1,0 +1,12 @@
+{
+  "mode": "chromium_fake_microphone_scripted_stt_llm_real_vad_piper_redis",
+  "physical_microphone": false,
+  "page_errors": [],
+  "mobile_overflow": false,
+  "text_and_voice_passed": true,
+  "human_handoff_bidirectional_resolution_passed": true,
+  "running_call_real_piper_midstream_recovery": true,
+  "human_reply_real_piper_playback": true,
+  "events": "",
+  "latency_label": "Text response: 0.01s"
+}

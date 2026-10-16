@@ -25,6 +25,7 @@ async def main():
     from support_assistant.config import Settings
     from support_assistant.entrypoints.api.app import app
     from support_assistant.observability.logging import configure_logging
+    from support_assistant.voice.faults import DemoFaults
     from support_assistant.voice.resources import VoiceResources
     from tests.fakes.support import make_service
 
@@ -34,10 +35,12 @@ async def main():
         settings,
         demo_a_token="browser-demo-only",
         demo_b_token="browser-other",
+        admin_token="browser-admin-only",
         redis_url=os.getenv("AEGIS_TEST_REDIS_URL", settings.redis_url),
     )
     redis = Redis.from_url(settings.redis_url, decode_responses=True)
     prefix = "aegis-browser-" + uuid.uuid4().hex
+    settings = replace(settings, prefix=prefix)
     runtime = make_service(redis, prefix, ROOT)
     runtime.settings = settings
     runtime.redis = redis
@@ -49,6 +52,8 @@ async def main():
 
     actual_stt = resources.stt
     resources.stt = STT()
+    resources.mode = "scripted_STT_LLM_real_VAD_Piper"
+    resources.faults = DemoFaults(redis, prefix, True)
     runtime.voice = resources
 
     @asynccontextmanager
@@ -101,10 +106,70 @@ async def main():
                 timeout=60000,
             )
             await page.wait_for_function(
-                "document.getElementById('latency').textContent.includes('Response:')",
+                "document.getElementById('latency').textContent.includes('Audio response:')",
                 timeout=60000,
             )
-            await page.locator("#voice").click()
+            admin = await browser.new_page()
+            admin.on("pageerror", lambda error: errors.append(str(error)))
+            await admin.goto("http://127.0.0.1:18080/admin")
+            await admin.locator("#admin-token").fill("browser-admin-only")
+            await admin.locator("#admin-connect").click()
+            assert not await admin.locator("#human-chat").is_visible()
+            await admin.locator("details summary").click()
+            await admin.locator("#fault-session").fill(
+                await page.evaluate("sessionStorage.getItem('aegis-session')")
+            )
+            await admin.locator("#fault-kind").select_option("tts_midstream")
+            await admin.locator("#arm-fault").click()
+            await admin.wait_for_function(
+                "document.getElementById('fault-status').textContent.includes('Armed')"
+            )
+            await page.locator("#text").fill("Where is AEG-1001?")
+            await page.locator("#send").click()
+            await page.wait_for_function(
+                "document.getElementById('events').textContent.includes('recovery')",
+                timeout=60000,
+            )
+            runtime.llm.route = "escalate_to_human"
+            await page.locator("#text").fill(
+                "I need a human to help with my damaged order."
+            )
+            await page.locator("#send").click()
+            await admin.locator("#human-chat").wait_for(state="visible")
+            await admin.locator("#claim").click()
+            await admin.wait_for_function(
+                "!document.getElementById('admin-send').disabled"
+            )
+            await admin.locator("#admin-text").fill(
+                "Please keep the damaged packaging for our review."
+            )
+            await admin.locator("#admin-send").click()
+            await page.wait_for_function(
+                "document.getElementById('messages').textContent.includes('Please keep the damaged packaging')"
+            )
+            await page.wait_for_function(
+                "document.getElementById('metrics').textContent.includes('Human reply')",
+                timeout=60000,
+            )
+            await page.locator("#text").fill("I have kept the packaging.")
+            await page.locator("#send").click()
+            await admin.wait_for_function(
+                "document.getElementById('admin-messages').textContent.includes('I have kept the packaging')"
+            )
+            await admin.locator("#resolution").fill(
+                "The review request has been recorded."
+            )
+            await admin.locator("#resolve").click()
+            await page.wait_for_function(
+                "document.getElementById('messages').textContent.includes('Human support summary')"
+            )
+            runtime.llm.route = "order_status"
+            await page.locator("#text").fill("Where is AEG-1002?")
+            await page.locator("#send").click()
+            await page.wait_for_function(
+                "document.getElementById('messages').textContent.includes('AEG-1002')"
+            )
+            await admin.screenshot(path=str(output / "admin-qa.png"), full_page=True)
             await page.screenshot(path=str(output / "frontend-qa.png"), full_page=True)
             await page.set_viewport_size({"width": 390, "height": 844})
             overflow = await page.evaluate(
@@ -118,6 +183,9 @@ async def main():
                 "page_errors": errors,
                 "mobile_overflow": overflow,
                 "text_and_voice_passed": True,
+                "human_handoff_bidirectional_resolution_passed": True,
+                "running_call_real_piper_midstream_recovery": True,
+                "human_reply_real_piper_playback": True,
                 "events": await page.locator("#events").inner_text(),
                 "latency_label": await page.locator("#latency").inner_text(),
             }

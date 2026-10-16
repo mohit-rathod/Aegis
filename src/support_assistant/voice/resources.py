@@ -15,6 +15,8 @@ class VoiceResources:
         self.session = None
         self.lock = asyncio.Lock()
         self.connections = 0
+        self.mode = "live_groq_whisper_chat_piper"
+        self.faults = None
         self.capacity = asyncio.Semaphore(settings.voice.provider_concurrency)
         self.stt: SpeechToText = GroqSpeechToText(
             settings.groq_key,

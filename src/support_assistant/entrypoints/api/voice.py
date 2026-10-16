@@ -28,7 +28,8 @@ class SocketTransport:
                 await asyncio.wait_for(self.socket.send_json(packet), 5)
             except Exception:
                 self.connected = False
-                raise
+                # A failed outbound socket must not discard an already accepted business turn.
+                return
 
 
 async def voice_socket(socket: WebSocket, session_id: str):
@@ -117,8 +118,14 @@ async def voice_socket(socket: WebSocket, session_id: str):
                 raise ValueError("Invalid control message")
             kind = data.get("type")
             if kind == "text":
-                # Server generates IDs: callers cannot forge another audio utterance.
-                await coordinator.text(data.get("text"))
+                # Text retry IDs are validated; ownership and replay fingerprints remain server-enforced.
+                submitted = data.get("submitted_at_ms")
+                if submitted is not None and (
+                    not isinstance(submitted, (int, float))
+                    or not math.isfinite(submitted)
+                ):
+                    raise ValueError("Invalid input timestamp")
+                await coordinator.text(data.get("text"), data.get("turn_id"), submitted)
             elif kind == "voice_start":
                 try:
                     await coordinator.enable()
@@ -148,8 +155,10 @@ async def voice_socket(socket: WebSocket, session_id: str):
                 )
             elif kind == "latency":
                 value = data.get("value_ms")
+                metadata = coordinator.playback_metadata.get(data.get("playback_id"))
                 if (
-                    isinstance(value, (float, int))
+                    metadata
+                    and isinstance(value, (float, int))
                     and math.isfinite(value)
                     and 0 <= value <= 120000
                 ):
@@ -159,10 +168,15 @@ async def voice_socket(socket: WebSocket, session_id: str):
                         metric="capture_to_scheduled_audio_ms",
                         value=round(value, 2),
                         mode="client_reported",
+                        turn_id=metadata.get("turn_id"),
+                        provider_mode=getattr(resources, "mode", "test_double"),
                         playback_id=str(data.get("playback_id", ""))[:64],
                     )
             elif kind == "ping":
                 await transport.send({"type": "pong"})
+            elif kind == "end_conversation":
+                await coordinator.end_conversation()
+                break
             elif kind == "close":
                 break
     except (WebSocketDisconnect, SupportError):
