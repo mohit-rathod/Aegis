@@ -14,3 +14,4 @@ build/
 dist/
 var/
 .DS_Store
+*.zip

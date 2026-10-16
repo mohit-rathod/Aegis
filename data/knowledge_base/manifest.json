@@ -1,0 +1,132 @@
+{
+  "dataset_id": "aegis-support-kb-v1",
+  "company": "Aegis",
+  "fictional": true,
+  "version": "1.0.0",
+  "effective_date": "2026-10-16",
+  "language": "en-IN",
+  "scope": "Fictional direct-store home air purifier support; not real Aegis company policy",
+  "document_count": 15,
+  "documents": [
+    {
+      "document_id": "AEGIS-KB-001",
+      "path": "products/product-overview.md",
+      "title": "Aegis Pure product overview",
+      "category": "products",
+      "version": "1.0.0",
+      "sha256": "604095e8fc2daaa1ba8276abdb1149d7a77971b8f7511e15e83c04703137a262"
+    },
+    {
+      "document_id": "AEGIS-KB-002",
+      "path": "products/filter-compatibility.md",
+      "title": "Filter compatibility and accessories",
+      "category": "products",
+      "version": "1.0.0",
+      "sha256": "ff5155d84a273bd766978d9780a4c3c57547440fa66bc97b111ef928eec94e6f"
+    },
+    {
+      "document_id": "AEGIS-KB-003",
+      "path": "products/filter-care.md",
+      "title": "Filter cleaning and replacement",
+      "category": "products",
+      "version": "1.0.0",
+      "sha256": "cccaaf094711847c4921ca603228c8d59265d3867baf11d5743786b6dd073fc4"
+    },
+    {
+      "document_id": "AEGIS-KB-004",
+      "path": "setup/first-use.md",
+      "title": "First-use installation",
+      "category": "setup",
+      "version": "1.0.0",
+      "sha256": "57879098262c0d6a57829ea4266517c4533b8b0ffd76b654e2ab67c03c0d6d52"
+    },
+    {
+      "document_id": "AEGIS-KB-005",
+      "path": "setup/wifi-pairing.md",
+      "title": "Pure Plus Wi-Fi pairing",
+      "category": "setup",
+      "version": "1.0.0",
+      "sha256": "6c524c28c915142a44b1650641b2507be246a36497393fede5ea9389c9f40a79"
+    },
+    {
+      "document_id": "AEGIS-KB-006",
+      "path": "setup/indicator-guide.md",
+      "title": "Indicator lights and filter reset",
+      "category": "setup",
+      "version": "1.0.0",
+      "sha256": "762e231c5fa6b0b4f8d1cace81948582e1009f97932bfbdf571f0699f3729353"
+    },
+    {
+      "document_id": "AEGIS-KB-007",
+      "path": "troubleshooting/low-airflow.md",
+      "title": "Troubleshooting weak airflow",
+      "category": "troubleshooting",
+      "version": "1.0.0",
+      "sha256": "abadb8566bb01bdaf498f05e2ef30d2c048e90b3646df513c5601ecc92b730b2"
+    },
+    {
+      "document_id": "AEGIS-KB-008",
+      "path": "troubleshooting/noise-and-vibration.md",
+      "title": "Troubleshooting noise and vibration",
+      "category": "troubleshooting",
+      "version": "1.0.0",
+      "sha256": "30b9faefc209d993b66bd4a9f4274719ad5856645efd94b329d6e9d3c31a31d1"
+    },
+    {
+      "document_id": "AEGIS-KB-009",
+      "path": "troubleshooting/device-offline.md",
+      "title": "Troubleshooting an offline Pure Plus",
+      "category": "troubleshooting",
+      "version": "1.0.0",
+      "sha256": "1e59aff99218dcead2f19b0b7fc68418c28d3e4f8221d39e538f6e9b00160340"
+    },
+    {
+      "document_id": "AEGIS-KB-010",
+      "path": "policies/shipping.md",
+      "title": "Shipping and delivery policy",
+      "category": "policies",
+      "version": "1.0.0",
+      "sha256": "617de0a42f7df256efcf2c4281ed4d401e07faf19b77d5d068ead02628948d92"
+    },
+    {
+      "document_id": "AEGIS-KB-011",
+      "path": "policies/returns.md",
+      "title": "Return eligibility policy",
+      "category": "policies",
+      "version": "1.0.0",
+      "sha256": "40b0256e75e240dd2fa431603bbd265da989156f83fe5878743b6cf783550922"
+    },
+    {
+      "document_id": "AEGIS-KB-012",
+      "path": "policies/refunds.md",
+      "title": "Refund decisions and payment timing",
+      "category": "policies",
+      "version": "1.0.0",
+      "sha256": "76ef933ae0d554775cb27c876cbf2a015f39927ec8d6211f86185e16bc3a7272"
+    },
+    {
+      "document_id": "AEGIS-KB-013",
+      "path": "policies/warranty.md",
+      "title": "Limited warranty policy",
+      "category": "policies",
+      "version": "1.0.0",
+      "sha256": "2cd924e7ae51a9885a5a702dc1ec5de1f7e70ac40429ae27b76cd8f60fd700e0"
+    },
+    {
+      "document_id": "AEGIS-KB-014",
+      "path": "support/order-status-and-verification.md",
+      "title": "Order lookup and identity verification",
+      "category": "support",
+      "version": "1.0.0",
+      "sha256": "53ebccf9a7b0268f08c6e84ae60c3f893e9ae141bc41e686a2440f24f75bb8ab"
+    },
+    {
+      "document_id": "AEGIS-KB-015",
+      "path": "support/human-escalation.md",
+      "title": "Human support and handoff",
+      "category": "support",
+      "version": "1.0.0",
+      "sha256": "278961e2f860ad9197e8983db79762972f8eb852b27800acdfdee87ece4c5595"
+    }
+  ]
+}

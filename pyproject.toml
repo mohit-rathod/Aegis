@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aegis-support-rag"
+version = "0.1.0"
+description = "Document-aware semantic RAG for the fictional Aegis support assignment"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26,<3",
+  "pydantic>=2.7,<3",
+  "PyYAML>=6,<7",
+  "httpx>=0.27,<1",
+  "sentence-transformers>=3,<6",
+  "python-dotenv>=1,<2",
+]
+
+[project.scripts]
+aegis-rag = "support_assistant.entrypoints.text_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+support_assistant = ["prompts/*.md"]
